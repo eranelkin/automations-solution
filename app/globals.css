@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --surface: #f8fafc;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent: #4f46e5;
+  --accent-2: #06b6d4;
+  --accent-2-text: #0e7490;
+  --accent-foreground: #ffffff;
+  --success: #047857;
+  --warning: #f59e0b;
+  --focus-ring: #4f46e5;
+  --shadow-ambient: 15 23 42;
+  /* Real WhatsApp chat-bubble colors, not part of the brand palette —
+     only used by the Hero flow's chat mockup. */
+  --whatsapp-bubble: #d9fdd3;
+  --whatsapp-bubble-text: #111b21;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #0a0b10;
+  --surface: #0f1117;
+  --card: #14161f;
+  --border: rgba(255, 255, 255, 0.08);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent: #818cf8;
+  --accent-2: #22d3ee;
+  --accent-2-text: #22d3ee;
+  --accent-foreground: #0a0b10;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --focus-ring: #818cf8;
+  --shadow-ambient: 0 0 0;
+  --whatsapp-bubble: #025144;
+  --whatsapp-bubble-text: #e9edef;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-focus-ring: var(--focus-ring);
+
+  --font-sans-he: var(--font-heebo);
+  --font-sans-en: var(--font-inter);
+
+  --text-h1: clamp(2.25rem, 1.6rem + 2.8vw, 4.5rem);
+  --text-h2: clamp(1.75rem, 1.4rem + 1.6vw, 3rem);
+  --text-h3: clamp(1.375rem, 1.2rem + 0.8vw, 1.875rem);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-feature-settings: "tnum" 1;
+}
+
+html[lang="he"] body {
+  font-family:
+    var(--font-heebo),
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+}
+
+html[lang="en"] body {
+  font-family:
+    var(--font-inter),
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: -9999px;
+  top: 0;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  inset-inline-start: 1rem;
+  top: 1rem;
+}
+
+/* ----- Accessibility toolbar overrides ----- */
+
+html[data-a11y-contrast="high"] {
+  --background: #ffffff;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --border: #000000;
+  --text-primary: #000000;
+  --text-secondary: #000000;
+  --accent: #1d1dff;
+  --accent-foreground: #ffffff;
+}
+
+html.dark[data-a11y-contrast="high"] {
+  --background: #000000;
+  --surface: #000000;
+  --card: #000000;
+  --border: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #ffffff;
+  --accent: #ffe600;
+  --accent-foreground: #000000;
+}
+
+html[data-a11y-font-size="large"] {
+  font-size: 112.5%;
+}
+
+html[data-a11y-font-size="larger"] {
+  font-size: 125%;
+}
+
+html[data-a11y-spacing="relaxed"] body {
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+}
+
+html[data-a11y-spacing="relaxed"] p {
+  margin-bottom: 1.25em;
+}
+
+html[data-a11y-links="underline"] a {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px;
+}
+
+html[data-a11y-motion="reduce"] *,
+html[data-a11y-motion="reduce"] *::before,
+html[data-a11y-motion="reduce"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@keyframes whatsapp-pulse {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+  88% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0.22);
+  }
+  96% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 36s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

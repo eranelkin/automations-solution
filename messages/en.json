@@ -1,0 +1,604 @@
+{
+  "meta": {
+    "title": "FlowPilot – Custom Business Automation & AI Agents",
+    "titleSuffix": "FlowPilot",
+    "description": "We turn manual business processes into smart, automated ones using AI, integrations, and automations built around your business."
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "languageSwitcher": "Switch language",
+    "english": "English",
+    "hebrew": "עברית",
+    "lightMode": "Light",
+    "darkMode": "Dark",
+    "systemMode": "System",
+    "themeSwitcher": "Color theme",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "nav": {
+    "howItWorks": "How it works",
+    "examples": "Examples",
+    "calculator": "Calculator",
+    "commitment": "Our commitment",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "cta": "Let's talk"
+  },
+  "hero": {
+    "eyebrow": "Custom business automation & AI agents",
+    "titleLine1": "Stop working for your processes.",
+    "titleLine2": "Let your processes work for you.",
+    "subtitle": "We turn manual business processes into smart, automated workflows using AI, integrations, and automations built around how your business actually runs. Instead of hours lost to copying data, keying in orders, and manual follow-ups — let's build a process that works for you.",
+    "ctaPrimary": "Let's automate my business",
+    "ctaSecondary": "See how it works",
+    "trustLine": "Nothing changes in your systems without your approval.",
+    "flow": {
+      "windowTitle": "FlowPilot · Order intake process",
+      "ariaLabel": "Animated demo of an automated order-intake process",
+      "exampleBadge": "Illustrative example",
+      "play": "Play the demo",
+      "pause": "Pause the demo",
+      "stepOf": "Step {current} of {total}",
+      "stepsNav": "Jump to a process step",
+      "reducedDescription": "Demo of an order-intake process: a customer sends an order over WhatsApp, AI reads the message and extracts the details (customer, products, quantities, date and address), the system checks those details against existing records, a manager approves the order over WhatsApp, the data is only entered into the ERP and CRM systems after approval, and finally the customer gets an automatic confirmation. The whole process takes about 12 seconds with no manual typing.",
+      "prevStep": "Previous step",
+      "nextStep": "Next step",
+      "steps": {
+        "intake": {
+          "stepName": "Order received",
+          "typing": "typing...",
+          "sender": "Joe · Corner Grocery",
+          "message": "Hi, can we order 40 cases of 1L olive oil and 25 cases of 800g tomato paste? Delivery next Tuesday to the Rehovot branch. Thanks, Joe – Corner Grocery"
+        },
+        "analysis": {
+          "stepName": "AI analysis",
+          "agentLabel": "AI Agent",
+          "entities": ["customer", "products", "quantities", "date", "address"]
+        },
+        "extraction": {
+          "stepName": "Data extraction",
+          "cardTitle": "Structured order",
+          "fields": {
+            "customer": { "label": "Customer", "value": "Corner Grocery · Joe" },
+            "products": {
+              "label": "Products",
+              "value": "1L olive oil · 800g tomato paste"
+            },
+            "quantity": { "label": "Quantity", "value": "40 + 25 cases" },
+            "address": { "label": "Delivery address", "value": "Rehovot" },
+            "date": { "label": "Delivery date", "value": "Tuesday" }
+          }
+        },
+        "validation": {
+          "stepName": "Checks & validation",
+          "checks": [
+            "Customer exists in system",
+            "Products are valid",
+            "Quantities look reasonable",
+            "No missing details"
+          ]
+        },
+        "approval": {
+          "stepName": "Manager approval",
+          "managerLabel": "Purchasing manager",
+          "summary": "New order from \"Corner Grocery\": 40 cases olive oil, 25 cases tomato paste. Delivery Tuesday, Rehovot.",
+          "approve": "Approve",
+          "fix": "Fix",
+          "guarantee": "No data enters the system before approval"
+        },
+        "sync": {
+          "stepName": "System sync",
+          "erp": "ERP",
+          "crm": "CRM",
+          "rowCreated": "New order row created"
+        },
+        "success": {
+          "stepName": "Done",
+          "message": "Order received successfully",
+          "customerConfirm": "Your order was received and will be delivered Tuesday. Thank you!",
+          "metric": "Handling time: 12 seconds · zero manual typing"
+        }
+      }
+    }
+  },
+  "calculator": {
+    "title": "What's it costing you not to automate?",
+    "subtitle": "See how much time and money your business spends on repetitive tasks, and the potential savings.",
+    "sliders": {
+      "employees": {
+        "label": "How many employees handle these repetitive tasks?",
+        "unit": "employees",
+        "valueText": "{value} employees"
+      },
+      "hoursPerWeek": {
+        "label": "How many hours a week does each employee spend on them?",
+        "unit": "hours / week",
+        "valueText": "{value} hours per week"
+      },
+      "hourlyCost": {
+        "label": "What's the average hourly labor cost?",
+        "unit": "₪ / hour",
+        "valueText": "{value} shekels per hour"
+      }
+    },
+    "results": {
+      "currentMonthlyCost": "Current monthly cost of these repetitive tasks",
+      "monthlySavings": "Potential monthly savings",
+      "yearlySavings": "Potential yearly savings",
+      "hoursSaved": "Work hours freed up per month",
+      "comparisonBefore": "Cost today",
+      "comparisonAfter": "Cost after automation",
+      "liveAnnouncement": "Estimated yearly savings: {amount} per year"
+    },
+    "disclaimer": "This estimate is for illustration only, based on the numbers entered and an assumed {rate}% potential savings on time spent on repetitive tasks. It is not a guarantee of actual financial savings. Real-world savings depend on the nature of the process, the scope of automation, development, implementation and maintenance costs, and whether the freed-up hours can be redirected to other work.",
+    "ctaTitle": "Want to know how much your business could really save?",
+    "ctaText": "This calculator gives a first estimate. To know what can be automated and what the right solution is for you, we need to look at the real process.",
+    "ctaPrimary": "Let's see how much my business could save",
+    "ctaWhatsapp": "Message us on WhatsApp",
+    "whatsappMessage": "Hi, I used the savings calculator on your website. In my business, {employees} employees spend about {hours} hours a week on repetitive tasks, and the estimated yearly savings is about {savings}. I'd love to hear more.",
+    "contactPrefill": "I came from the calculator on your website. In my business, {employees} employees spend about {hours} hours a week on repetitive tasks at an hourly cost of about ₪{cost}, and the estimated yearly savings is about {savings}. I'd love to hear more about the right solution for us."
+  },
+  "problem": {
+    "title": "How much time is your business losing on things that could be streamlined?",
+    "summary": "If something keeps happening the same way over and over, it's worth checking whether it can run itself.",
+    "items": [
+      "Employees copy data from one system to another",
+      "Orders arrive by email or WhatsApp and get typed in by hand",
+      "Supplier invoices are keyed in one by one",
+      "Leads from different sources don't get followed up in time",
+      "Quotes are rebuilt manually again and again",
+      "Managers approve every action over messages and email",
+      "Information is scattered across Excel, email, WhatsApp, and systems",
+      "Hours disappear into follow-ups, reminders, and reports"
+    ]
+  },
+  "solution": {
+    "title": "We turn clunky processes into smart ones.",
+    "description": "We connect your systems, data, and AI tools to create processes that run automatically, accurately, and under control.",
+    "emphasis": "Not automating a single action — automating the whole business process.",
+    "pipeline": [
+      "Intake from emails, messages, forms, and documents",
+      "Understanding and extracting details with AI",
+      "Checking against business rules and existing data",
+      "Routing to the right systems",
+      "Generating documents, tasks, orders, and reports",
+      "Alerts and approval requests",
+      "Monitoring and handling exceptions"
+    ]
+  },
+  "examples": {
+    "title": "What could be automated in your business?",
+    "subtitle": "Here are a few examples of common processes. They're illustrative only, and don't limit the kind of solutions we build.",
+    "footerNote": "These are just a few examples out of many. The process you need to streamline might not even be listed here. Bring us the challenge, and we'll figure out how to make it smart and automatic.",
+    "cta": "I have a process I want to automate",
+    "showMore": "See details",
+    "showLess": "Show less",
+    "industries": {
+      "all": "All",
+      "factories": "Manufacturers",
+      "retail": "Retail & grocery",
+      "insurance": "Insurance agencies",
+      "legal": "Law firms"
+    },
+    "items": {
+      "orderIntake": {
+        "title": "Automatic order intake",
+        "industries": ["factories", "retail"],
+        "problem": "Orders arrive by email and WhatsApp and get typed into the system by hand, with typos and delays.",
+        "steps": [
+          "Intake from email and WhatsApp",
+          "AI extracts the details",
+          "Identify the customer and products",
+          "Check quantities and stock",
+          "Summary sent for manager approval",
+          "Entered into ERP/CRM after approval",
+          "Confirmation sent to the customer"
+        ]
+      },
+      "invoiceProcessing": {
+        "title": "Supplier invoice processing",
+        "industries": ["factories", "retail", "insurance", "legal"],
+        "problem": "Supplier invoices are typed into the books one by one, risking duplicates and mistakes.",
+        "steps": [
+          "Invoice intake",
+          "OCR + AI extraction",
+          "Identify vendor, amounts, and dates",
+          "Match against purchase orders",
+          "Flag duplicates and exceptions",
+          "Approval where needed",
+          "Entered into the books"
+        ]
+      },
+      "supplierOrders": {
+        "title": "Supplier orders & delivery notes",
+        "industries": ["retail"],
+        "problem": "Manually tracking low stock and supplier orders takes time and still leads to shortages.",
+        "steps": [
+          "Low-stock alerts",
+          "Draft order prepared for approval",
+          "Delivery notes captured",
+          "Matched against the order"
+        ]
+      },
+      "leadManagement": {
+        "title": "Lead management & sales flow",
+        "industries": ["factories", "retail", "insurance", "legal"],
+        "problem": "Leads from different sources fall through the cracks instead of being followed up in time.",
+        "steps": [
+          "Intake from every source",
+          "AI classification",
+          "Lead created in CRM",
+          "Assigned to a salesperson",
+          "Reminders and follow-up",
+          "Flag leads that went untouched"
+        ]
+      },
+      "clientOnboarding": {
+        "title": "Client onboarding & document collection",
+        "industries": ["insurance", "legal"],
+        "problem": "Collecting documents from new clients means manual reminders and chasing people down.",
+        "steps": [
+          "Intake questionnaire",
+          "Request missing documents with automatic reminders",
+          "Sort and file the documents",
+          "Case opened in the system after approval"
+        ]
+      },
+      "customerService": {
+        "title": "Smart customer service",
+        "industries": ["factories", "retail", "insurance", "legal"],
+        "problem": "Customer inquiries come in through several channels and require manual digging before anyone can reply.",
+        "steps": [
+          "Intake from multiple channels",
+          "Understand the request",
+          "Pull the relevant information",
+          "Suggest a reply within policy and permissions",
+          "Open a ticket",
+          "Escalate complex cases to a rep"
+        ]
+      },
+      "quotes": {
+        "title": "Quote generation",
+        "industries": ["factories", "insurance"],
+        "problem": "Quotes get rebuilt manually every time, with price lists checked by hand.",
+        "steps": [
+          "Intake the request",
+          "Check price lists",
+          "Calculate",
+          "Generate the document",
+          "Approval where needed",
+          "Send and follow up"
+        ]
+      },
+      "procurement": {
+        "title": "Procurement & approvals",
+        "industries": ["factories"],
+        "problem": "Purchase requests and approvals move manually between people with no central tracking.",
+        "steps": [
+          "Purchase request",
+          "Compare quotes",
+          "Flag exceptions",
+          "Manager approval",
+          "Purchase order created",
+          "Track fulfillment"
+        ]
+      }
+    }
+  },
+  "whyUs": {
+    "title": "Your business doesn't run on a template. Your automation shouldn't either.",
+    "summary": "We're not here to add another system to your stack. We make the systems you already have work better together.",
+    "items": {
+      "custom": {
+        "title": "Solutions built around you",
+        "description": "Every process is built around how your business actually works, not a pre-made template."
+      },
+      "businessFirst": {
+        "title": "Business understanding before technology",
+        "description": "We understand the process and the goals first, then pick the right tools for the job."
+      },
+      "integration": {
+        "title": "Connecting what you already have",
+        "description": "We don't replace what's already working — we connect your systems so they talk to each other."
+      },
+      "smartAi": {
+        "title": "AI used wisely, only where it adds value",
+        "description": "AI is a tool, not the goal. It's used only where it genuinely saves time and improves accuracy."
+      },
+      "humanControl": {
+        "title": "Human control and approval",
+        "description": "You decide which actions run automatically and which need approval first."
+      },
+      "support": {
+        "title": "Hands-on support and rollout",
+        "description": "We stay with you from launch, track performance, and keep improving over time."
+      }
+    }
+  },
+  "commitment": {
+    "title": "Our commitment: nothing changes without your approval.",
+    "items": {
+      "noChanges": {
+        "title": "Zero changes without approval",
+        "description": "No action is taken in your systems or data without prior, explicit approval."
+      },
+      "yourRules": {
+        "title": "You set the rules",
+        "description": "Which processes run with approval and which run automatically is entirely your call."
+      },
+      "minimalAccess": {
+        "title": "Minimal access",
+        "description": "Access only to what a process needs, with defined and documented permissions."
+      },
+      "transparency": {
+        "title": "Full transparency",
+        "description": "Every action the system takes is logged."
+      },
+      "encryption": {
+        "title": "Encryption",
+        "description": "Data is encrypted in transit and at rest."
+      },
+      "confidentiality": {
+        "title": "Confidentiality",
+        "description": "An NDA is signed before any work begins."
+      },
+      "sensitiveControl": {
+        "title": "Control over sensitive actions",
+        "description": "Payments, binding orders, and customer commitments always go through an approval step."
+      },
+      "compliance": {
+        "title": "Legal compliance",
+        "description": "We work in line with Israel's privacy law and data-security regulations."
+      }
+    }
+  },
+  "process": {
+    "title": "How it works",
+    "subtitle": "Four steps, from initial diagnosis to ongoing improvement.",
+    "steps": {
+      "discover": {
+        "title": "Understand the business",
+        "description": "A free diagnostic conversation, learning the existing process, and spotting bottlenecks and repetitive work."
+      },
+      "design": {
+        "title": "Design the solution",
+        "description": "Defining the new process, the systems to connect, AI's role, and the approval checkpoints."
+      },
+      "build": {
+        "title": "Build and connect",
+        "description": "Building the automation, connecting systems, and testing."
+      },
+      "launch": {
+        "title": "Launch and improve",
+        "description": "Going live, tracking performance, and continuously improving."
+      }
+    }
+  },
+  "systems": {
+    "title": "We connect the systems already running your business.",
+    "note": "Examples of systems we can look into connecting. Every connection is assessed on its own.",
+    "message": "You don't have to replace your systems. Sometimes all it takes is getting them to talk to each other.",
+    "items": [
+      "WhatsApp", "Gmail", "Outlook", "Slack", "Monday", "HubSpot", "Salesforce",
+      "Priority", "SAP Business One", "Hashavshevet", "Rivhit", "Excel", "Google Sheets",
+      "Inventory systems", "Service desks", "Digital forms", "APIs", "AI tools"
+    ]
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "items": {
+      "howLong": {
+        "question": "How long does it take to set up an automation?",
+        "answer": "It depends on the scope. A focused process can go live within a few weeks, while a more complex one connecting several systems can take longer. We'll give you a realistic estimate for your specific process in the diagnostic call."
+      },
+      "howMuch": {
+        "question": "How much does it cost?",
+        "answer": "It depends on the process: its complexity, the systems involved, and the amount of work required. Pricing is set after a free diagnostic call, where we understand exactly what's needed."
+      },
+      "replaceSystems": {
+        "question": "Do we need to replace our existing systems?",
+        "answer": "In most cases, no. We connect to the systems you already have rather than replacing them. We'd only discuss a replacement if there's a real gap that requires it."
+      },
+      "aiMistakes": {
+        "question": "What happens if the AI gets something wrong?",
+        "answer": "Every process has control points and human approval built in where you need them, and any sensitive action requires approval before it happens. Exceptions and uncertain cases are flagged for a person, not run automatically."
+      },
+      "dataProtection": {
+        "question": "How is my data protected?",
+        "answer": "Data is encrypted in transit and at rest, access is limited to what's needed, and we sign an NDA before work begins. Every action is logged and transparent."
+      },
+      "technicalKnowledge": {
+        "question": "Do I need technical knowledge to work with you?",
+        "answer": "Not at all. We handle the technical side. What you bring is knowledge of your own business process — we take care of the rest."
+      },
+      "startSmall": {
+        "question": "Can we start with just one small process?",
+        "answer": "Absolutely, and it's usually what we recommend. Starting with one well-defined process lets you see results fast and learn before expanding further."
+      },
+      "stopping": {
+        "question": "What happens if we want to stop later on?",
+        "answer": "Your data and processes are always yours. If you want to pause or change direction, we'll hand everything over in an orderly, transparent way."
+      }
+    }
+  },
+  "footer": {
+    "closingTitle": "Every process holding your business back is a chance to streamline it.",
+    "closingText": "Tell us what you want to change, and we'll build the way there.",
+    "tagline": "Custom business automation & AI agents.",
+    "navTitle": "Navigate",
+    "contactTitle": "Get in touch",
+    "legalTitle": "Legal",
+    "accessibility": "Accessibility statement",
+    "privacy": "Privacy policy",
+    "terms": "Terms of use",
+    "rights": "All rights reserved"
+  },
+  "whatsappFloat": {
+    "label": "Message us on WhatsApp",
+    "tooltip": "Got a question? Message us",
+    "message": "Hi, I came from your website and I'd like to hear how automation can save time in my business"
+  },
+  "contact": {
+    "title": "Is there a process in your business you want to stop doing by hand?",
+    "subtitle": "Tell us what's slowing you down. We'll look at the process and see how to make it smarter, faster, and more automatic.",
+    "fields": {
+      "fullName": { "label": "Full name", "placeholder": "Jane Doe" },
+      "businessName": { "label": "Business name", "placeholder": "Your company name" },
+      "phone": { "label": "Phone", "placeholder": "050-1234567" },
+      "email": { "label": "Email", "placeholder": "name@company.com" },
+      "industry": { "label": "Industry", "placeholder": "Select an industry" },
+      "processToAutomate": { "label": "Which process would you like to streamline?", "placeholder": "e.g. order intake" },
+      "description": { "label": "Tell us more", "placeholder": "Tell us more about the process and what's slowing you down" },
+      "consent": "I've read and agree to the"
+    },
+    "industries": {
+      "factory": "Manufacturing",
+      "retail": "Retail / grocery",
+      "insurance": "Insurance agency",
+      "legal": "Law firm",
+      "other": "Other"
+    },
+    "privacyLink": "privacy policy",
+    "submit": "Let's talk about automation",
+    "submitting": "Sending...",
+    "successTitle": "Your message was sent!",
+    "successText": "Thanks for reaching out. We'll get back to you shortly.",
+    "errors": {
+      "required": "This field is required",
+      "phoneInvalid": "Please enter a valid phone number",
+      "emailInvalid": "Please enter a valid email address",
+      "consentRequired": "Please accept the privacy policy to continue",
+      "generic": "Something went wrong. Please try again shortly, or message us on WhatsApp.",
+      "rateLimited": "Too many submissions in a short time. Please try again in a few minutes.",
+      "noWebhook": "The form can't be submitted right now. You can reach us directly on WhatsApp instead."
+    },
+    "whatsappCard": {
+      "title": "Prefer WhatsApp?",
+      "text": "Send us a message and we'll get back to you shortly.",
+      "cta": "Open WhatsApp"
+    }
+  },
+  "a11y": {
+    "openPanel": "Open accessibility menu",
+    "title": "Accessibility settings",
+    "close": "Close",
+    "fontSize": "Text size",
+    "increaseFont": "Increase text size",
+    "decreaseFont": "Decrease text size",
+    "highContrast": "High contrast",
+    "stopAnimations": "Stop all animations",
+    "underlineLinks": "Underline links",
+    "readableSpacing": "Readable font & line spacing",
+    "reset": "Reset to default settings"
+  },
+  "cookies": {
+    "title": "Cookie consent",
+    "text": "We use essential cookies to run this site, and additional (non-essential) cookies only with your consent.",
+    "privacyLink": "privacy policy",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
+  "legal": {
+    "accessibility": {
+      "title": "Accessibility statement",
+      "updated": "Last updated: [TO COMPLETE: update date]",
+      "commitment": {
+        "title": "Our commitment to accessibility",
+        "body": "FlowPilot treats accessibility as a priority for all users, including people with disabilities. We work to align the site with Israeli Standard (IS) 5568 for web content accessibility, level AA, and with the international WCAG 2.1 guidelines."
+      },
+      "features": {
+        "title": "Accessibility features on this site",
+        "items": [
+          "Semantic structure, a valid heading hierarchy, and a \"skip to content\" link",
+          "Full keyboard navigation with a clear focus indicator",
+          "Screen reader support, including text descriptions for visual content and animations",
+          "Color contrast meeting AA requirements in both light and dark mode",
+          "A built-in accessibility menu: increase/decrease text size, high contrast, stop animations, underline links, and readable line spacing",
+          "Respecting the operating system's \"reduce motion\" (prefers-reduced-motion) setting",
+          "Full support for Hebrew (RTL) and English (LTR)"
+        ]
+      },
+      "limitations": {
+        "title": "Known limitations",
+        "body": "We continuously work to improve the site's accessibility. Some areas may not yet be fully accessible. If you run into any difficulty, we'd welcome you contacting us so we can address it promptly."
+      },
+      "contact": {
+        "title": "Accessibility contact",
+        "body": "Found an accessibility issue on the site, or have a suggestion for improvement? We'd love to hear from you.",
+        "coordinator": "Accessibility coordinator: [TO COMPLETE: coordinator name]",
+        "phone": "Phone: [TO COMPLETE: phone number]",
+        "email": "Email: [TO COMPLETE: dedicated accessibility contact email]",
+        "response": "We aim to respond to accessibility inquiries within [TO COMPLETE: number of business days]."
+      }
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "updated": "Last updated: [TO COMPLETE: update date]",
+      "intro": {
+        "title": "Introduction",
+        "body": "This privacy policy describes how FlowPilot [TO COMPLETE: full legal company name, registration number] collects, uses, and protects personal information submitted through this website. Continued use of the site constitutes acceptance of this policy."
+      },
+      "collection": {
+        "title": "What information we collect",
+        "body": "We collect information you provide voluntarily through the contact form (name, business name, phone, email, and your message), as well as basic technical information collected automatically during your visit (such as browser type and pages viewed), subject to your consent to non-essential cookies."
+      },
+      "use": {
+        "title": "How we use your information",
+        "body": "We use the information collected to respond to your inquiry, understand your business needs, and improve our service. We do not sell or rent your personal information to third parties."
+      },
+      "sharing": {
+        "title": "Sharing information with third parties",
+        "body": "Information may be shared with service providers acting on our behalf (such as a customer-inquiry management system), under confidentiality obligations, and never for third-party marketing purposes. [TO COMPLETE: list relevant vendors/data processors, if any]."
+      },
+      "security": {
+        "title": "Data security",
+        "body": "We take reasonable security measures, including encryption of data in transit, to protect your personal information from unauthorized access or use."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "body": "This site uses essential cookies required for normal operation. Non-essential cookies (such as analytics) are only loaded after you consent via the cookie banner, and you can withdraw consent at any time."
+      },
+      "rights": {
+        "title": "Your rights",
+        "body": "Under Israel's Privacy Protection Law, 1981, you are entitled to review the information held about you and request its correction or deletion. To exercise these rights, please contact us using the details below."
+      },
+      "contact": {
+        "title": "Contact us",
+        "body": "For questions about this privacy policy, contact us at [TO COMPLETE: email address] or [TO COMPLETE: phone number]."
+      }
+    },
+    "terms": {
+      "title": "Terms of use",
+      "updated": "Last updated: [TO COMPLETE: update date]",
+      "intro": {
+        "title": "Introduction",
+        "body": "These terms of use apply to your use of the FlowPilot website (the \"Site\"). By browsing and using the Site, you agree to these terms in full."
+      },
+      "use": {
+        "title": "Use of the site",
+        "body": "The Site is intended to provide information about the company's services and to facilitate initial contact only. You may not use the Site for any unlawful purpose or in a way that could harm its proper operation."
+      },
+      "ip": {
+        "title": "Intellectual property",
+        "body": "All rights in the Site's content, including text, design, logo, and code, belong to FlowPilot [TO COMPLETE: full legal name]. No part of it may be copied, distributed, or used without prior written permission."
+      },
+      "disclaimer": {
+        "title": "Disclaimer",
+        "body": "Information on the Site is provided \"as is\" for general informational purposes only and does not constitute a commitment to any specific business outcome. Examples shown on the Site are illustrative only. [TO COMPLETE: full disclaimer language from legal counsel]."
+      },
+      "jurisdiction": {
+        "title": "Governing law and jurisdiction",
+        "body": "These terms are governed by the laws of the State of Israel, and the courts of [TO COMPLETE: judicial district] shall have exclusive jurisdiction over any matter related to them."
+      },
+      "changes": {
+        "title": "Changes to these terms",
+        "body": "We may update these terms from time to time. The updated terms will be posted on the Site and take effect as of their publication date."
+      },
+      "contact": {
+        "title": "Contact us",
+        "body": "For questions about these terms of use, contact us at [TO COMPLETE: email address]."
+      }
+    }
+  }
+}
