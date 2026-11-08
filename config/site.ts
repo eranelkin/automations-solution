@@ -3,17 +3,17 @@
  * Swap COMPANY_NAME, phone, and links here — nowhere else in the codebase.
  */
 
-export const COMPANY_NAME = "FlowPilot";
+export const COMPANY_NAME = "WorkFlowPilot";
 
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://flowpilot.example.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://workflowpilot.example.com";
 
 /** E.164-ish, no spaces — used to build wa.me / tel: links. */
 export const WHATSAPP_PHONE = "972523637333";
 export const PHONE_DISPLAY = "+972-52-363-7333";
 
 /** [להשלמה: אימייל רשמי של החברה] */
-export const CONTACT_EMAIL = "hello@flowpilot.example.com";
+export const CONTACT_EMAIL = "hello@workflowpilot.example.com";
 
 export const SOCIAL_LINKS = {
   linkedin: "", // [להשלמה: קישור ללינקדאין]

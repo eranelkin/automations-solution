@@ -6,9 +6,11 @@ import { Logo } from "@/components/ui/logo";
 import { Container } from "@/components/ui/container";
 import { Link } from "@/i18n/navigation";
 import { ThemeToggle } from "./theme-toggle";
-import { LanguageSwitcher } from "./language-switcher";
+// Hebrew only for now; restore to bring back the language switcher.
+// import { LanguageSwitcher } from "./language-switcher";
 import { NAV_LINKS } from "./nav-links";
 import {
+  COMPANY_NAME,
   CONTACT_EMAIL,
   PHONE_DISPLAY,
   SOCIAL_LINKS,
@@ -35,7 +37,9 @@ export function Footer() {
           <h2 className="text-xl font-semibold text-[var(--text-primary)] md:text-2xl">
             {t("closingTitle")}
           </h2>
-          <p className="mt-2 text-[var(--text-secondary)]">{t("closingText")}</p>
+          <p className="mt-2 text-[var(--text-secondary)]">
+            {t("closingText")}
+          </p>
         </div>
 
         <div className="mt-14 grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
@@ -122,12 +126,12 @@ export function Footer() {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
-            <LanguageSwitcher />
+            {/* <LanguageSwitcher /> */}
           </div>
         </div>
 
         <p className="mt-8 text-center text-xs text-[var(--text-secondary)]">
-          © {year} FlowPilot. {t("rights")}.
+          © {year} {COMPANY_NAME}. {t("rights")}.
         </p>
       </Container>
     </footer>

@@ -17,7 +17,7 @@ export function LegalPage({
       <Header />
       <main id="main-content" className="pt-32 pb-20 md:pt-40 md:pb-28">
         <Container className="max-w-3xl">
-          <h1 className="text-[var(--text-h2)] font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
+          <h1 className="text-h2 font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
             {title}
           </h1>
           {updated && (

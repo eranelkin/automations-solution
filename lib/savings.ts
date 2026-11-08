@@ -16,9 +16,9 @@ export interface SavingsResult {
 }
 
 export const CALCULATOR_DEFAULTS: SavingsInput = {
-  employees: 5,
-  hoursPerWeek: 5,
-  hourlyCost: 80,
+  employees: 2,
+  hoursPerWeek: 10,
+  hourlyCost: 60,
 };
 
 export const CALCULATOR_RANGES = {

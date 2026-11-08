@@ -5,13 +5,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useLocale, useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
-import { CheckCircle2, MessageCircle } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { formatCurrency, formatNumber } from "@/lib/format";
 import { useCalculator } from "@/components/calculator/calculator-context";
 import {
@@ -87,15 +86,11 @@ export function ContactSection() {
     }
   };
 
-  const whatsappHref = buildWhatsAppLink(
-    `${t("title")} — ${t("whatsappCard.text")}`,
-  );
-
   return (
-    <Section id="contact" surface>
+    <Section id="contact">
       <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 
-      <div className="grid gap-8 lg:grid-cols-[3fr_2fr]">
+      <div className="mx-auto max-w-3xl">
         <Card spotlight={false} className="p-6 md:p-8">
           {submitState.status === "success" ? (
             <motion.div
@@ -262,21 +257,6 @@ export function ContactSection() {
               </Button>
             </form>
           )}
-        </Card>
-
-        <Card spotlight={false} className="flex flex-col items-start gap-4 bg-[#25D366]/5 p-6 md:p-8">
-          <span className="flex size-12 items-center justify-center rounded-full bg-[#25D366] text-white">
-            <MessageCircle className="size-6" aria-hidden="true" />
-          </span>
-          <h3 className="text-lg font-semibold text-[var(--text-primary)]">
-            {t("whatsappCard.title")}
-          </h3>
-          <p className="text-sm text-[var(--text-secondary)]">{t("whatsappCard.text")}</p>
-          <Button asChild variant="secondary">
-            <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-              {t("whatsappCard.cta")}
-            </a>
-          </Button>
         </Card>
       </div>
     </Section>

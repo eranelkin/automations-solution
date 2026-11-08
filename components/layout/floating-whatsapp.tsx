@@ -8,35 +8,25 @@ import { usePrefersReducedMotion } from "@/lib/use-reduced-motion";
 import { useCookieConsent } from "@/lib/use-cookie-consent";
 import { cn } from "@/lib/utils";
 
-const SEEN_KEY = "flowpilot-whatsapp-tooltip-seen";
+const SEEN_KEY = "workflowpilot-whatsapp-tooltip-seen";
 
 export function FloatingWhatsApp() {
   const t = useTranslations("whatsappFloat");
   const reduced = usePrefersReducedMotion();
   const cookieConsent = useCookieConsent();
   const bannerVisible = cookieConsent === null;
-  const [visible, setVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
 
+  // Always visible, from the first screen, so it's on every page alongside
+  // the calculator dock. The tooltip still shows once per visitor.
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    if (!visible) return;
-    if (typeof window === "undefined") return;
     if (window.localStorage.getItem(SEEN_KEY)) return;
     const id = setTimeout(() => {
       setShowTooltip(true);
       window.localStorage.setItem(SEEN_KEY, "1");
     }, 600);
     return () => clearTimeout(id);
-  }, [visible]);
-
-  if (!visible) return null;
+  }, []);
 
   return (
     <div
@@ -59,7 +49,7 @@ export function FloatingWhatsApp() {
         rel="noopener noreferrer"
         aria-label={t("label")}
         onMouseEnter={() => setShowTooltip(false)}
-        className={`flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#25D366] ${
+        className={`flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105 focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:outline-none ${
           reduced ? "" : "animate-[whatsapp-pulse_6s_ease-in-out_infinite]"
         }`}
       >

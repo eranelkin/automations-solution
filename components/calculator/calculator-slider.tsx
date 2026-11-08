@@ -43,10 +43,10 @@ export function CalculatorSlider({
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center justify-between gap-4">
-        <label htmlFor={id} className="text-sm font-medium text-[var(--text-primary)]">
+        <label htmlFor={id} className="min-w-0 flex-1 text-sm font-medium text-[var(--text-primary)]">
           {label}
         </label>
-        <div className="flex items-center gap-1.5">
+        <div className="flex shrink-0 items-center gap-2">
           <input
             id={id}
             type="number"
@@ -55,7 +55,16 @@ export function CalculatorSlider({
             max={max}
             step={step}
             value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={(e) => {
+              const raw = e.target.value;
+              setInputValue(raw);
+              // Recalculate live while typing or using the spinner arrows;
+              // out-of-range values are clamped on blur by commitInput.
+              const parsed = Number(raw);
+              if (raw !== "" && Number.isFinite(parsed) && parsed >= min && parsed <= max) {
+                onChange(parsed);
+              }
+            }}
             onBlur={commitInput}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
@@ -69,7 +78,7 @@ export function CalculatorSlider({
             className="w-16 rounded-lg border border-[var(--border)] bg-[var(--background)] px-2 py-1 text-end text-sm font-semibold tabular-nums text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
           />
           {suffix && (
-            <span className="text-sm text-[var(--text-secondary)]">{suffix}</span>
+            <span className="w-20 text-sm whitespace-nowrap text-[var(--text-secondary)]">{suffix}</span>
           )}
         </div>
       </div>

@@ -20,8 +20,8 @@ export function FaqSection() {
   const t = useTranslations("faq");
 
   return (
-    <Section id="faq" surface>
-      <h2 className="mb-10 text-center text-[var(--text-h2)] font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
+    <Section id="faq">
+      <h2 className="mb-10 text-center text-h2 font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
         {t("title")}
       </h2>
 

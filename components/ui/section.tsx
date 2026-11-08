@@ -55,7 +55,7 @@ export function SectionHeading({
         </p>
       )}
       <h2
-        className="text-[var(--text-h2)] font-semibold leading-tight tracking-[-0.01em] text-[var(--text-primary)]"
+        className="text-h2 font-semibold leading-tight tracking-[-0.01em] text-[var(--text-primary)]"
       >
         {title}
       </h2>

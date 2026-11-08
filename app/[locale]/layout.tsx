@@ -9,6 +9,8 @@ import { A11yScript } from "@/components/a11y/a11y-script";
 import { A11yProvider } from "@/components/a11y/a11y-provider";
 import { A11yToggle } from "@/components/a11y/a11y-toggle";
 import { FloatingWhatsApp } from "@/components/layout/floating-whatsapp";
+import { CalculatorProvider } from "@/components/calculator/calculator-context";
+import { CalculatorDock } from "@/components/calculator/calculator-dock";
 import { CookieBanner } from "@/components/layout/cookie-banner";
 import { Analytics } from "@/components/layout/analytics";
 import { OrganizationJsonLd } from "@/components/sections/organization-json-ld";
@@ -76,20 +78,28 @@ export default async function LocaleLayout({
         <OrganizationJsonLd locale={locale} />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
           <NextIntlClientProvider>
             <A11yProvider>
-              <a href="#main-content" className="skip-link rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--accent-foreground)]">
-                {locale === "he" ? "דלג לתוכן" : "Skip to content"}
-              </a>
-              {children}
-              <FloatingWhatsApp />
-              <A11yToggle />
-              <CookieBanner />
-              <Analytics />
+              {/* Site-wide so the calculator dock floats on every page; the
+                  home page's contact form also reads it for the prefill. */}
+              <CalculatorProvider>
+                <a
+                  href="#main-content"
+                  className="skip-link rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-[var(--accent-foreground)]"
+                >
+                  {locale === "he" ? "דלג לתוכן" : "Skip to content"}
+                </a>
+                {children}
+                <CalculatorDock />
+                <FloatingWhatsApp />
+                <A11yToggle />
+                <CookieBanner />
+                <Analytics />
+              </CalculatorProvider>
             </A11yProvider>
           </NextIntlClientProvider>
         </ThemeProvider>

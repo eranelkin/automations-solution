@@ -52,7 +52,7 @@ export function WhyUsSection() {
   const t = useTranslations("whyUs");
 
   return (
-    <Section id="why-us" surface>
+    <Section id="why-us" className="pt-8 md:pt-12 lg:pt-16">
       <SectionHeading title={t("title")} />
 
       <div className="grid gap-4 lg:grid-cols-4">

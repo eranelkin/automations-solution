@@ -1,4 +1,4 @@
-export const COOKIE_CONSENT_KEY = "flowpilot-cookie-consent";
+export const COOKIE_CONSENT_KEY = "workflowpilot-cookie-consent";
 export type CookieConsent = "accepted" | "declined";
 
 type Listener = () => void;
