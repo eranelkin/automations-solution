@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 
-test.describe("Locale switching", () => {
+// Skipped while the site is Hebrew-only (language switcher commented out).
+test.describe.skip("Locale switching", () => {
   test("switches from Hebrew to English and back", async ({ page }) => {
     await page.goto("/he");
     const header = page.locator("header");
@@ -18,9 +19,9 @@ test.describe("Locale switching", () => {
   });
 
   test("preserves the scroll anchor when switching language", async ({ page }) => {
-    await page.goto("/he#calculator");
-    await page.evaluate(() => document.getElementById("calculator")?.scrollIntoView());
+    await page.goto("/he#faq");
+    await page.evaluate(() => document.getElementById("faq")?.scrollIntoView());
     await page.locator("header").getByRole("link", { name: "English" }).click();
-    await expect(page).toHaveURL(/\/en#calculator/);
+    await expect(page).toHaveURL(/\/en#faq/);
   });
 });

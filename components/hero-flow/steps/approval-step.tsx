@@ -2,7 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { MousePointer2, ShieldCheck } from "lucide-react";
 import { WhatsAppBubble, useStepEnter, staggerDelay } from "../atoms";
 
@@ -12,6 +12,7 @@ const CURSOR_DURATION = 1.1;
 
 export function ApprovalStep({ staticMode = false }: { staticMode?: boolean }) {
   const t = useTranslations("hero.flow.steps.approval");
+  const isRtl = useLocale() === "he";
   const [pressed, setPressed] = useState(staticMode);
   const approveRef = useRef<HTMLButtonElement>(null);
   const [cursorTarget, setCursorTarget] = useState<{ x: number; y: number } | null>(null);
@@ -26,12 +27,19 @@ export function ApprovalStep({ staticMode = false }: { staticMode?: boolean }) {
     const el = approveRef.current;
     const stage = el?.closest("[data-approval-stage]");
     if (!el || !stage) return;
-    const rect = el.getBoundingClientRect();
-    const parentRect = stage.getBoundingClientRect();
-    setCursorTarget({
-      x: rect.left - parentRect.left + rect.width / 2,
-      y: rect.top - parentRect.top + rect.height / 2,
-    });
+    // Layout offsets, not getBoundingClientRect: the hero window is scaled
+    // with CSS `zoom` (.hero-flow-scale), so client rects come back in
+    // zoomed pixels while the cursor's transform moves in unzoomed ones.
+    // Offsets also ignore the button row's in-flight entrance transform.
+    let x = el.offsetWidth / 2;
+    let y = el.offsetHeight / 2;
+    let node: HTMLElement | null = el;
+    while (node && node !== stage) {
+      x += node.offsetLeft;
+      y += node.offsetTop;
+      node = node.offsetParent as HTMLElement | null;
+    }
+    setCursorTarget({ x, y });
   }, [staticMode]);
 
   // The "click" flips once the cursor has actually arrived, not on an
@@ -77,7 +85,10 @@ export function ApprovalStep({ staticMode = false }: { staticMode?: boolean }) {
         <motion.div
           aria-hidden="true"
           initial={{ x: 20, y: 60, opacity: 0 }}
-          animate={{ x: cursorTarget.x - 10, y: cursorTarget.y - 4, opacity: 1 }}
+          // The pointer's tip is its top-left corner, or top-right once
+          // mirrored for RTL, so offset the 20px icon box to put the tip
+          // on the button's center.
+          animate={{ x: cursorTarget.x - (isRtl ? 18 : 2), y: cursorTarget.y - 2, opacity: 1 }}
           transition={{ duration: CURSOR_DURATION, delay: CURSOR_DELAY, ease: [0.22, 1, 0.36, 1] }}
           // Deliberately physical left/top, not start/top: cursorTarget.x/y
           // come from getBoundingClientRect, which is always a physical

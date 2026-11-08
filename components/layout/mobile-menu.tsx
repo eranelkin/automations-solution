@@ -5,7 +5,8 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { useLocale, useTranslations } from "next-intl";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { LanguageSwitcher } from "./language-switcher";
+// Hebrew only for now; restore to bring back the language switcher.
+// import { LanguageSwitcher } from "./language-switcher";
 import { ThemeToggle } from "./theme-toggle";
 import { NAV_LINKS } from "./nav-links";
 
@@ -59,7 +60,7 @@ export function MobileMenu() {
           <div className="mt-auto flex items-center justify-between gap-3 border-t border-[var(--border)] pt-6">
             <div className="flex items-center gap-2">
               <ThemeToggle />
-              <LanguageSwitcher />
+              {/* <LanguageSwitcher /> */}
             </div>
             <Button asChild size="lg" onClick={() => setOpen(false)}>
               <a href={`/${locale}#contact`}>{t("nav.cta")}</a>

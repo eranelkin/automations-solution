@@ -5,7 +5,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { Logo } from "@/components/ui/logo";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./theme-toggle";
-import { LanguageSwitcher } from "./language-switcher";
+// Hebrew only for now; restore to bring back the language switcher.
+// import { LanguageSwitcher } from "./language-switcher";
 import { MobileMenu } from "./mobile-menu";
 import { NAV_LINKS } from "./nav-links";
 import { cn } from "@/lib/utils";
@@ -51,7 +52,7 @@ export function Header() {
         <div className="flex items-center gap-1">
           <div className="hidden items-center gap-1 lg:flex">
             <ThemeToggle />
-            <LanguageSwitcher />
+            {/* <LanguageSwitcher /> */}
           </div>
           <Button asChild size="sm" className="ms-2 hidden lg:inline-flex">
             <a href={`/${locale}#contact`}>{t("nav.cta")}</a>

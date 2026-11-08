@@ -9,7 +9,7 @@ test.describe("Navigation", () => {
 
   test("homepage has the expected title and landmarks", async ({ page }) => {
     await page.goto("/he");
-    await expect(page).toHaveTitle(/FlowPilot/);
+    await expect(page).toHaveTitle(/WorkFlowPilot/);
     await expect(page.locator("header")).toBeVisible();
     await expect(page.locator("#main-content")).toBeVisible();
     await expect(page.locator("footer")).toBeVisible();
@@ -17,9 +17,9 @@ test.describe("Navigation", () => {
 
   test("header nav link scrolls to the target section", async ({ page }) => {
     await page.goto("/he");
-    await page.getByRole("link", { name: "מחשבון" }).first().click();
+    await page.getByRole("link", { name: "שאלות נפוצות" }).first().click();
     await page.waitForTimeout(500);
-    await expect(page.locator("#calculator")).toBeInViewport();
+    await expect(page.locator("#faq")).toBeInViewport();
   });
 
   test("no horizontal overflow on common breakpoints", async ({ page }) => {
@@ -27,7 +27,9 @@ test.describe("Navigation", () => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto("/he");
       const hasOverflow = await page.evaluate(
-        () => document.documentElement.scrollWidth > document.documentElement.clientWidth,
+        () =>
+          document.documentElement.scrollWidth >
+          document.documentElement.clientWidth,
       );
       expect(hasOverflow, `width ${width}`).toBe(false);
     }

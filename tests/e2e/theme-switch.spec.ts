@@ -35,7 +35,7 @@ test.describe("Theme switching", () => {
     const bgColor = await page.evaluate(
       () => getComputedStyle(document.body).backgroundColor,
     );
-    // Dark background (#0A0B10) should already be applied on first paint.
-    expect(bgColor).toBe("rgb(10, 11, 16)");
+    // Dark background (#1C2130) should already be applied on first paint.
+    expect(bgColor).toBe("rgb(28, 33, 48)");
   });
 });

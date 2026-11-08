@@ -1,4 +1,4 @@
-export const A11Y_STORAGE_KEY = "flowpilot-a11y-prefs";
+export const A11Y_STORAGE_KEY = "workflowpilot-a11y-prefs";
 
 export type FontSizeLevel = "normal" | "large" | "larger";
 

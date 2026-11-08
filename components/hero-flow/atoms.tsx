@@ -82,19 +82,18 @@ export function WhatsAppBubble({
         )}
       >
         {children}
-        {/* The little tail triangle real chat bubbles have at the corner
-            closest to the sender. Built from a single clip-path pointing
-            toward the inline-start edge, then mirrored for the "end"
-            variant and for RTL via `rtl:-scale-x-100` — same flip pattern
-            used on the approval-step cursor icon. */}
+        {/* The little tail triangle real chat bubbles have at the bottom
+            corner closest to the sender. The right angle sits against the
+            bubble and the tip points outward; clip-paths are physical, so
+            each side gets its own polygon for LTR and RTL. */}
         <span
           aria-hidden="true"
           className={cn(
             "absolute bottom-0 size-2.5",
             WHATSAPP_BUBBLE_BG,
             align === "end"
-              ? "end-[-6px] [clip-path:polygon(100%_0,0_100%,100%_100%)] rtl:-scale-x-100"
-              : "start-[-6px] [clip-path:polygon(0_0,100%_100%,0_100%)] rtl:-scale-x-100",
+              ? "end-[-6px] [clip-path:polygon(0_0,0_100%,100%_100%)] rtl:[clip-path:polygon(100%_0,100%_100%,0_100%)]"
+              : "start-[-6px] [clip-path:polygon(100%_0,100%_100%,0_100%)] rtl:[clip-path:polygon(0_0,0_100%,100%_100%)]",
           )}
         />
       </div>
@@ -176,37 +175,6 @@ export function CheckItem({
         </motion.span>
       </span>
       <span className="text-sm text-[var(--text-primary)]">{label}</span>
-    </motion.div>
-  );
-}
-
-export function SystemCard({
-  name,
-  delay = 0,
-  rowCreated,
-}: {
-  name: string;
-  delay?: number;
-  rowCreated: string;
-}) {
-  const reduce = useReducedMotionConfig();
-  const rowDelay = reduce ? 0 : delay + 0.6;
-  const rowDuration = reduce ? 0.01 : 0.3;
-
-  return (
-    <motion.div
-      {...useStepEnter(delay)}
-      className="flex-1 rounded-xl border border-[var(--border)] bg-[var(--background)] p-4"
-    >
-      <p className="text-xs font-semibold text-[var(--text-secondary)]">{name}</p>
-      <motion.div
-        initial={{ opacity: 0, scaleY: 0.6 }}
-        animate={{ opacity: 1, scaleY: 1 }}
-        transition={{ delay: rowDelay, duration: rowDuration }}
-        className="mt-2.5 rounded-md border border-dashed border-[var(--success)]/40 bg-[var(--success)]/10 px-2.5 py-2 text-xs font-medium text-[var(--success)]"
-      >
-        + {rowCreated}
-      </motion.div>
     </motion.div>
   );
 }

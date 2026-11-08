@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "FlowPilot – Custom Business Automation & AI Agents",
-    "titleSuffix": "FlowPilot",
+    "title": "WorkFlowPilot – Custom Business Automation & AI Agents",
+    "titleSuffix": "WorkFlowPilot",
     "description": "We turn manual business processes into smart, automated ones using AI, integrations, and automations built around your business."
   },
   "common": {
@@ -19,22 +19,18 @@
   "nav": {
     "howItWorks": "How it works",
     "examples": "Examples",
-    "calculator": "Calculator",
     "commitment": "Our commitment",
     "faq": "FAQ",
     "contact": "Contact",
     "cta": "Let's talk"
   },
   "hero": {
-    "eyebrow": "Custom business automation & AI agents",
-    "titleLine1": "Stop working for your processes.",
-    "titleLine2": "Let your processes work for you.",
-    "subtitle": "We turn manual business processes into smart, automated workflows using AI, integrations, and automations built around how your business actually runs. Instead of hours lost to copying data, keying in orders, and manual follow-ups — let's build a process that works for you.",
-    "ctaPrimary": "Let's automate my business",
-    "ctaSecondary": "See how it works",
+    "titleLine1": "Automation that works for you —",
+    "titleLine2": "not without you",
+    "subtitle": "AI reads orders from WhatsApp and email, prepares a clear summary, and passes them to your systems only after you approve.",
     "trustLine": "Nothing changes in your systems without your approval.",
     "flow": {
-      "windowTitle": "FlowPilot · Order intake process",
+      "windowTitle": "WorkFlowPilot · Order intake process",
       "ariaLabel": "Animated demo of an automated order-intake process",
       "exampleBadge": "Illustrative example",
       "play": "Play the demo",
@@ -48,26 +44,32 @@
         "intake": {
           "stepName": "Order received",
           "typing": "typing...",
-          "sender": "Joe · Corner Grocery",
-          "message": "Hi, can we order 40 cases of 1L olive oil and 25 cases of 800g tomato paste? Delivery next Tuesday to the Rehovot branch. Thanks, Joe – Corner Grocery"
+          "sender": "Avi · Site foreman, Sea Towers project",
+          "message": "Morning, we need for the Netanya site on Tuesday: 12 pallets of 20cm blocks and 40 bags of 25kg grey cement. Delivery by 7:00 AM, there's a crane on site. Thanks, Avi"
         },
         "analysis": {
           "stepName": "AI analysis",
           "agentLabel": "AI Agent",
-          "entities": ["customer", "products", "quantities", "date", "address"]
+          "highlights": [
+            { "text": "Netanya site", "entity": "address" },
+            { "text": "Tuesday", "entity": "date" },
+            { "text": "12 pallets", "entity": "quantities" },
+            { "text": "20cm blocks", "entity": "products" },
+            { "text": "40 bags", "entity": "quantities" },
+            { "text": "25kg grey cement", "entity": "products" },
+            { "text": "by 7:00 AM", "entity": "delivery time" },
+            { "text": "Avi", "entity": "customer" }
+          ]
         },
         "extraction": {
           "stepName": "Data extraction",
           "cardTitle": "Structured order",
           "fields": {
-            "customer": { "label": "Customer", "value": "Corner Grocery · Joe" },
-            "products": {
-              "label": "Products",
-              "value": "1L olive oil · 800g tomato paste"
-            },
-            "quantity": { "label": "Quantity", "value": "40 + 25 cases" },
-            "address": { "label": "Delivery address", "value": "Rehovot" },
-            "date": { "label": "Delivery date", "value": "Tuesday" }
+            "customer": { "label": "Customer", "value": "Avi · Site foreman, Sea Towers" },
+            "products": { "label": "Products", "value": "20cm blocks · 25kg grey cement" },
+            "quantity": { "label": "Quantity", "value": "12 pallets + 40 bags" },
+            "address": { "label": "Delivery address", "value": "Netanya site" },
+            "date": { "label": "Delivery time", "value": "Tuesday, by 7:00 AM" }
           }
         },
         "validation": {
@@ -82,7 +84,7 @@
         "approval": {
           "stepName": "Manager approval",
           "managerLabel": "Purchasing manager",
-          "summary": "New order from \"Corner Grocery\": 40 cases olive oil, 25 cases tomato paste. Delivery Tuesday, Rehovot.",
+          "summary": "New order from \"Avi · Sea Towers project\": 12 pallets of 20cm blocks, 40 bags of 25kg grey cement. Delivery Tuesday by 7:00 AM, Netanya site.",
           "approve": "Approve",
           "fix": "Fix",
           "guarantee": "No data enters the system before approval"
@@ -91,7 +93,12 @@
           "stepName": "System sync",
           "erp": "ERP",
           "crm": "CRM",
-          "rowCreated": "New order row created"
+          "source": "Approved order",
+          "erpCaption": "Orders & inventory",
+          "crmCaption": "Customers & activity",
+          "erpRows": ["20cm blocks · 12 pallets", "25kg grey cement · 40 bags", "Delivery: Tue 7:00 AM · Netanya"],
+          "crmRows": ["Avi · Sea Towers project", "New order logged on account"],
+          "updated": "Updated"
         },
         "success": {
           "stepName": "Done",
@@ -103,6 +110,7 @@
     }
   },
   "calculator": {
+    "dock": { "open": "Open savings calculator", "close": "Close calculator", "disclaimerToggle": "How we calculated this" },
     "title": "What's it costing you not to automate?",
     "subtitle": "See how much time and money your business spends on repetitive tasks, and the potential savings.",
     "sliders": {
@@ -132,11 +140,6 @@
       "liveAnnouncement": "Estimated yearly savings: {amount} per year"
     },
     "disclaimer": "This estimate is for illustration only, based on the numbers entered and an assumed {rate}% potential savings on time spent on repetitive tasks. It is not a guarantee of actual financial savings. Real-world savings depend on the nature of the process, the scope of automation, development, implementation and maintenance costs, and whether the freed-up hours can be redirected to other work.",
-    "ctaTitle": "Want to know how much your business could really save?",
-    "ctaText": "This calculator gives a first estimate. To know what can be automated and what the right solution is for you, we need to look at the real process.",
-    "ctaPrimary": "Let's see how much my business could save",
-    "ctaWhatsapp": "Message us on WhatsApp",
-    "whatsappMessage": "Hi, I used the savings calculator on your website. In my business, {employees} employees spend about {hours} hours a week on repetitive tasks, and the estimated yearly savings is about {savings}. I'd love to hear more.",
     "contactPrefill": "I came from the calculator on your website. In my business, {employees} employees spend about {hours} hours a week on repetitive tasks at an hourly cost of about ₪{cost}, and the estimated yearly savings is about {savings}. I'd love to hear more about the right solution for us."
   },
   "problem": {
@@ -172,19 +175,10 @@
     "subtitle": "Here are a few examples of common processes. They're illustrative only, and don't limit the kind of solutions we build.",
     "footerNote": "These are just a few examples out of many. The process you need to streamline might not even be listed here. Bring us the challenge, and we'll figure out how to make it smart and automatic.",
     "cta": "I have a process I want to automate",
-    "showMore": "See details",
-    "showLess": "Show less",
-    "industries": {
-      "all": "All",
-      "factories": "Manufacturers",
-      "retail": "Retail & grocery",
-      "insurance": "Insurance agencies",
-      "legal": "Law firms"
-    },
+    "stepsLabel": "How it works, step by step",
     "items": {
       "orderIntake": {
         "title": "Automatic order intake",
-        "industries": ["factories", "retail"],
         "problem": "Orders arrive by email and WhatsApp and get typed into the system by hand, with typos and delays.",
         "steps": [
           "Intake from email and WhatsApp",
@@ -198,7 +192,6 @@
       },
       "invoiceProcessing": {
         "title": "Supplier invoice processing",
-        "industries": ["factories", "retail", "insurance", "legal"],
         "problem": "Supplier invoices are typed into the books one by one, risking duplicates and mistakes.",
         "steps": [
           "Invoice intake",
@@ -212,7 +205,6 @@
       },
       "supplierOrders": {
         "title": "Supplier orders & delivery notes",
-        "industries": ["retail"],
         "problem": "Manually tracking low stock and supplier orders takes time and still leads to shortages.",
         "steps": [
           "Low-stock alerts",
@@ -223,7 +215,6 @@
       },
       "leadManagement": {
         "title": "Lead management & sales flow",
-        "industries": ["factories", "retail", "insurance", "legal"],
         "problem": "Leads from different sources fall through the cracks instead of being followed up in time.",
         "steps": [
           "Intake from every source",
@@ -236,7 +227,6 @@
       },
       "clientOnboarding": {
         "title": "Client onboarding & document collection",
-        "industries": ["insurance", "legal"],
         "problem": "Collecting documents from new clients means manual reminders and chasing people down.",
         "steps": [
           "Intake questionnaire",
@@ -247,7 +237,6 @@
       },
       "customerService": {
         "title": "Smart customer service",
-        "industries": ["factories", "retail", "insurance", "legal"],
         "problem": "Customer inquiries come in through several channels and require manual digging before anyone can reply.",
         "steps": [
           "Intake from multiple channels",
@@ -260,7 +249,6 @@
       },
       "quotes": {
         "title": "Quote generation",
-        "industries": ["factories", "insurance"],
         "problem": "Quotes get rebuilt manually every time, with price lists checked by hand.",
         "steps": [
           "Intake the request",
@@ -273,7 +261,6 @@
       },
       "procurement": {
         "title": "Procurement & approvals",
-        "industries": ["factories"],
         "problem": "Purchase requests and approvals move manually between people with no central tracking.",
         "steps": [
           "Purchase request",
@@ -350,28 +337,6 @@
       "compliance": {
         "title": "Legal compliance",
         "description": "We work in line with Israel's privacy law and data-security regulations."
-      }
-    }
-  },
-  "process": {
-    "title": "How it works",
-    "subtitle": "Four steps, from initial diagnosis to ongoing improvement.",
-    "steps": {
-      "discover": {
-        "title": "Understand the business",
-        "description": "A free diagnostic conversation, learning the existing process, and spotting bottlenecks and repetitive work."
-      },
-      "design": {
-        "title": "Design the solution",
-        "description": "Defining the new process, the systems to connect, AI's role, and the approval checkpoints."
-      },
-      "build": {
-        "title": "Build and connect",
-        "description": "Building the automation, connecting systems, and testing."
-      },
-      "launch": {
-        "title": "Launch and improve",
-        "description": "Going live, tracking performance, and continuously improving."
       }
     }
   },
@@ -472,11 +437,6 @@
       "generic": "Something went wrong. Please try again shortly, or message us on WhatsApp.",
       "rateLimited": "Too many submissions in a short time. Please try again in a few minutes.",
       "noWebhook": "The form can't be submitted right now. You can reach us directly on WhatsApp instead."
-    },
-    "whatsappCard": {
-      "title": "Prefer WhatsApp?",
-      "text": "Send us a message and we'll get back to you shortly.",
-      "cta": "Open WhatsApp"
     }
   },
   "a11y": {
@@ -505,7 +465,7 @@
       "updated": "Last updated: [TO COMPLETE: update date]",
       "commitment": {
         "title": "Our commitment to accessibility",
-        "body": "FlowPilot treats accessibility as a priority for all users, including people with disabilities. We work to align the site with Israeli Standard (IS) 5568 for web content accessibility, level AA, and with the international WCAG 2.1 guidelines."
+        "body": "WorkFlowPilot treats accessibility as a priority for all users, including people with disabilities. We work to align the site with Israeli Standard (IS) 5568 for web content accessibility, level AA, and with the international WCAG 2.1 guidelines."
       },
       "features": {
         "title": "Accessibility features on this site",
@@ -537,7 +497,7 @@
       "updated": "Last updated: [TO COMPLETE: update date]",
       "intro": {
         "title": "Introduction",
-        "body": "This privacy policy describes how FlowPilot [TO COMPLETE: full legal company name, registration number] collects, uses, and protects personal information submitted through this website. Continued use of the site constitutes acceptance of this policy."
+        "body": "This privacy policy describes how WorkFlowPilot [TO COMPLETE: full legal company name, registration number] collects, uses, and protects personal information submitted through this website. Continued use of the site constitutes acceptance of this policy."
       },
       "collection": {
         "title": "What information we collect",
@@ -573,7 +533,7 @@
       "updated": "Last updated: [TO COMPLETE: update date]",
       "intro": {
         "title": "Introduction",
-        "body": "These terms of use apply to your use of the FlowPilot website (the \"Site\"). By browsing and using the Site, you agree to these terms in full."
+        "body": "These terms of use apply to your use of the WorkFlowPilot website (the \"Site\"). By browsing and using the Site, you agree to these terms in full."
       },
       "use": {
         "title": "Use of the site",
@@ -581,7 +541,7 @@
       },
       "ip": {
         "title": "Intellectual property",
-        "body": "All rights in the Site's content, including text, design, logo, and code, belong to FlowPilot [TO COMPLETE: full legal name]. No part of it may be copied, distributed, or used without prior written permission."
+        "body": "All rights in the Site's content, including text, design, logo, and code, belong to WorkFlowPilot [TO COMPLETE: full legal name]. No part of it may be copied, distributed, or used without prior written permission."
       },
       "disclaimer": {
         "title": "Disclaimer",

@@ -31,7 +31,7 @@ export function ProblemSection() {
   const items = t.raw("items") as string[];
 
   return (
-    <Section id="problem">
+    <Section id="problem" className="py-8 md:py-12 lg:py-16">
       <SectionHeading title={t("title")} />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

@@ -40,7 +40,7 @@ export function CommitmentSection() {
   const t = useTranslations("commitment");
 
   return (
-    <Section id="commitment">
+    <Section id="commitment" className="pt-[72px] pb-8 md:pt-[88px] md:pb-12 lg:pt-[104px] lg:pb-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -58,10 +58,10 @@ export function CommitmentSection() {
         />
 
         <div className="relative flex flex-col items-center text-center">
-          <span className="flex size-16 items-center justify-center rounded-full bg-[var(--accent)]/10 text-[var(--accent)]">
+          <span className="flex size-16 items-center justify-center rounded-full bg-[var(--green-soft)]/10 text-[var(--green-soft)]/80">
             <ShieldCheck className="size-8" aria-hidden="true" />
           </span>
-          <h2 className="mt-6 text-[var(--text-h2)] font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
+          <h2 className="mt-6 text-h2 font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
             {t("title")}
           </h2>
         </div>
@@ -71,7 +71,7 @@ export function CommitmentSection() {
             const Icon = ICONS[i];
             return (
               <div key={id} className="flex gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
-                <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-[var(--card)] text-[var(--accent)]">
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-[var(--card)] text-[var(--green-soft)]/80">
                   <Icon className="size-4.5" aria-hidden="true" />
                 </span>
                 <div>

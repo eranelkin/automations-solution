@@ -6,10 +6,43 @@ import { useEffect, useRef, useState } from "react";
 import { useAnimatedNumber } from "@/lib/use-animated-number";
 import { formatCurrency, formatNumber } from "@/lib/format";
 import type { SavingsResult } from "@/lib/savings";
+import { cn } from "@/lib/utils";
 
 function AnimatedCurrency({ value, locale }: { value: number; locale: string }) {
   const animated = useAnimatedNumber(value);
   return <span className="tabular-nums">{formatCurrency(animated, locale)}</span>;
+}
+
+/** One row of the before/after horizontal bar chart: label, bar, amount. */
+function ComparisonBar({
+  label,
+  value,
+  pct,
+  barClassName,
+  locale,
+}: {
+  label: string;
+  value: number;
+  pct: number;
+  barClassName: string;
+  locale: string;
+}) {
+  return (
+    <div className="grid grid-cols-[8.5rem_1fr_5.5rem] items-center gap-3">
+      <span className="text-xs font-medium text-[var(--text-secondary)]">{label}</span>
+      <div className="h-6 overflow-hidden rounded-e-md bg-[var(--surface)]">
+        <motion.div
+          className={cn("h-full rounded-e-[4px]", barClassName)}
+          initial={false}
+          animate={{ width: `${pct}%` }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </div>
+      <span className="text-end text-sm font-semibold text-[var(--text-primary)]">
+        <AnimatedCurrency value={value} locale={locale} />
+      </span>
+    </div>
+  );
 }
 
 export function CalculatorResults({ result }: { result: SavingsResult }) {
@@ -34,56 +67,50 @@ export function CalculatorResults({ result }: { result: SavingsResult }) {
   }, [result.yearlySavings, locale, t]);
 
   return (
-    <div className="flex flex-col gap-6 rounded-3xl border border-[var(--border)] bg-[var(--card)] p-6 md:p-8">
-      <div>
-        <p className="text-sm text-[var(--text-secondary)]">{t("currentMonthlyCost")}</p>
-        <p className="mt-1 text-xl font-semibold tabular-nums text-[var(--text-primary)]">
-          <AnimatedCurrency value={result.monthlyCost} locale={locale} />
-        </p>
-      </div>
-
-      <div>
-        <p className="text-sm text-[var(--text-secondary)]">{t("monthlySavings")}</p>
-        <p className="mt-1 text-2xl font-semibold tabular-nums text-[var(--success)]">
-          <AnimatedCurrency value={result.monthlySavings} locale={locale} />
-        </p>
-      </div>
-
-      <div className="rounded-2xl bg-[var(--surface)] p-5">
-        <p className="text-sm font-medium text-[var(--text-secondary)]">{t("yearlySavings")}</p>
-        <p className="mt-2 text-[clamp(2rem,1.5rem+2vw,3.5rem)] leading-none font-bold tabular-nums text-[var(--accent)]">
+    <div className="flex flex-col gap-4">
+      <div className="rounded-2xl bg-[var(--surface)] p-4">
+        <p className="text-xs font-medium text-[var(--text-secondary)]">{t("yearlySavings")}</p>
+        <p className="mt-1.5 text-4xl leading-none font-bold tabular-nums text-[var(--accent)]">
           <AnimatedCurrency value={result.yearlySavings} locale={locale} />
         </p>
+        <p className="mt-2 flex items-center gap-1.5 text-xs text-[var(--text-secondary)]">
+          <span className="font-semibold text-[var(--text-primary)] tabular-nums">
+            {formatNumber(result.hoursSavedPerMonth, locale)}
+          </span>
+          {t("hoursSaved")}
+        </p>
       </div>
 
-      <div className="flex items-center gap-2 text-sm text-[var(--text-secondary)]">
-        <span className="font-semibold text-[var(--text-primary)] tabular-nums">
-          {formatNumber(result.hoursSavedPerMonth, locale)}
-        </span>
-        {t("hoursSaved")}
+      <div className="grid grid-cols-2 gap-3">
+        <div className="rounded-xl border border-[var(--border)] p-3">
+          <p className="text-xs leading-snug text-[var(--text-secondary)]">{t("currentMonthlyCost")}</p>
+          <p className="mt-1 text-lg font-semibold tabular-nums text-[var(--text-primary)]">
+            <AnimatedCurrency value={result.monthlyCost} locale={locale} />
+          </p>
+        </div>
+        <div className="rounded-xl border border-[var(--border)] p-3">
+          <p className="text-xs leading-snug text-[var(--text-secondary)]">{t("monthlySavings")}</p>
+          <p className="mt-1 text-lg font-semibold tabular-nums text-[var(--success)]">
+            <AnimatedCurrency value={result.monthlySavings} locale={locale} />
+          </p>
+        </div>
       </div>
 
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-between text-xs text-[var(--text-secondary)]">
-          <span>{t("comparisonBefore")}</span>
-          <span>{t("comparisonAfter")}</span>
-        </div>
-        <div className="flex h-3 gap-1 overflow-hidden rounded-full bg-[var(--surface)]">
-          <motion.div
-            className="h-full rounded-full bg-[var(--text-secondary)]/40"
-            initial={false}
-            animate={{ width: `${beforePct}%` }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          />
-        </div>
-        <div className="flex h-3 gap-1 overflow-hidden rounded-full bg-[var(--surface)]">
-          <motion.div
-            className="h-full rounded-full bg-[var(--accent)]"
-            initial={false}
-            animate={{ width: `${afterPct}%` }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          />
-        </div>
+      <div className="flex flex-col gap-2.5">
+        <ComparisonBar
+          label={t("comparisonBefore")}
+          value={result.monthlyCost}
+          pct={beforePct}
+          barClassName="bg-[var(--chart-before)]/60"
+          locale={locale}
+        />
+        <ComparisonBar
+          label={t("comparisonAfter")}
+          value={result.monthlyCost - result.monthlySavings}
+          pct={afterPct}
+          barClassName="bg-[var(--chart-after)]/60"
+          locale={locale}
+        />
       </div>
 
       <p ref={announceRef} aria-live="polite" className="sr-only">

@@ -1,6 +1,6 @@
-# FlowPilot — marketing site
+# WorkFlowPilot — marketing site
 
-A bilingual (Hebrew/English) one-page marketing site for FlowPilot, a
+A bilingual (Hebrew/English) one-page marketing site for WorkFlowPilot, a
 business-automation and AI-agents company. Built with Next.js App Router,
 TypeScript, Tailwind CSS 4, next-intl, next-themes, Motion, and Radix UI.
 
@@ -14,7 +14,6 @@ npm install
 cp .env.example .env.local   # fill in WEBHOOK_URL to test real form submission
 npm run dev
 ```
-Test
 Open http://localhost:3000 — it redirects to `/he` (default locale; `/en`
 is the other).
 

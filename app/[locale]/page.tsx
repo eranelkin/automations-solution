@@ -8,13 +8,10 @@ import { SolutionSection } from "@/components/sections/solution-section";
 import { ExamplesSection } from "@/components/sections/examples-section";
 import { WhyUsSection } from "@/components/sections/why-us-section";
 import { CommitmentSection } from "@/components/sections/commitment-section";
-import { ProcessSection } from "@/components/sections/process-section";
-import { CalculatorSection } from "@/components/sections/calculator-section";
 import { SystemsMarquee } from "@/components/sections/systems-marquee";
 import { FaqSection } from "@/components/sections/faq-section";
 import { FaqJsonLd } from "@/components/sections/faq-json-ld";
 import { ContactSection } from "@/components/sections/contact-section";
-import { CalculatorProvider } from "@/components/calculator/calculator-context";
 
 export default async function HomePage({
   params,
@@ -25,24 +22,22 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   return (
-    <CalculatorProvider>
+    <>
       <FaqJsonLd locale={locale} />
       <PageBackground />
       <Header />
       <main id="main-content">
         <Hero />
-        <ProblemSection />
         <SolutionSection />
+        <ProblemSection />
+        <CommitmentSection />
         <ExamplesSection />
         <WhyUsSection />
-        <CommitmentSection />
-        <ProcessSection />
-        <CalculatorSection />
         <SystemsMarquee />
         <FaqSection />
         <ContactSection />
       </main>
       <Footer />
-    </CalculatorProvider>
+    </>
   );
 }

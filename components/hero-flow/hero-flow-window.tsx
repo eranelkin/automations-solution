@@ -51,7 +51,7 @@ export function HeroFlowWindow({ disabled = false }: { disabled?: boolean }) {
       aria-label={t("ariaLabel")}
       onMouseEnter={() => flow.setHovered(true)}
       onMouseLeave={() => flow.setHovered(false)}
-      className="relative mx-auto w-full max-w-[560px] overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--card)] shadow-[0_24px_64px_-24px_rgba(15,23,42,0.25)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.04)]"
+      className="relative mx-auto w-full max-w-[720px] overflow-hidden rounded-3xl hero-flow-scale border border-[var(--border)] bg-[var(--card)] shadow-[0_24px_64px_-24px_rgba(15,23,42,0.25)] dark:shadow-[0_0_0_1px_rgba(255,255,255,0.04)]"
     >
       <div className="flex items-center justify-between border-b border-[var(--border)] bg-[var(--surface)] px-4 py-3">
         <div className="flex items-center gap-1.5" aria-hidden="true">
