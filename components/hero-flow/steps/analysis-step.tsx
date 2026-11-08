@@ -13,6 +13,9 @@ const { scanStart, scanPassSeconds, scanRoundTrips, markStagger, markSeconds } =
 /** Markers start once the first downward sweep has finished. */
 const firstMarkAt = scanStart + scanPassSeconds;
 
+/** Number of --hl-N keyword colors defined in globals.css. */
+const HIGHLIGHT_COLORS = 6;
+
 export function AnalysisStep({ staticMode = false }: { staticMode?: boolean }) {
   const t = useTranslations("hero.flow.steps.analysis");
   const intake = useTranslations("hero.flow.steps.intake");
@@ -31,6 +34,13 @@ export function AnalysisStep({ staticMode = false }: { staticMode?: boolean }) {
       chipAt.set(seg.entity, firstMarkAt + seg.markIndex * markStagger);
     }
   });
+
+  // One light color per data type, in the order the types are found; the
+  // marker on the word and its chip share it (tokens in globals.css).
+  const colorOf = (entity: string) => {
+    const n = ([...chipAt.keys()].indexOf(entity) % HIGHLIGHT_COLORS) + 1;
+    return { fill: `var(--hl-${n})`, text: `var(--hl-${n}-text)` };
+  };
 
   // Marker swipes grow from the inline-start edge: physical right in RTL.
   const markOrigin = locale === "he" ? "right" : "left";
@@ -58,8 +68,11 @@ export function AnalysisStep({ staticMode = false }: { staticMode?: boolean }) {
             <span key={i} className="relative inline-block">
               <motion.span
                 aria-hidden="true"
-                className="absolute -inset-x-0.5 inset-y-0.5 rounded-[3px] bg-[var(--accent-2)]/35"
-                style={{ transformOrigin: markOrigin }}
+                className="absolute -inset-x-0.5 inset-y-0.5 rounded-[3px]"
+                style={{
+                  transformOrigin: markOrigin,
+                  backgroundColor: `color-mix(in srgb, ${colorOf(seg.entity).fill} 50%, transparent)`,
+                }}
                 initial={animated ? { scaleX: 0, opacity: 0 } : false}
                 animate={
                   animated
@@ -110,7 +123,12 @@ export function AnalysisStep({ staticMode = false }: { staticMode?: boolean }) {
             initial={animated ? { opacity: 0, y: 8, scale: 0.9 } : false}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={animated ? { duration: 0.4, ease, delay: at + 0.1 } : { duration: 0 }}
-            className="rounded-full border border-[var(--accent-2)]/40 bg-[var(--accent-2)]/10 px-3 py-1 text-xs font-medium text-[var(--accent-2-text)]"
+            className="rounded-full border px-3 py-1 text-xs font-medium"
+            style={{
+              color: colorOf(entity).text,
+              borderColor: `color-mix(in srgb, ${colorOf(entity).fill} 55%, transparent)`,
+              backgroundColor: `color-mix(in srgb, ${colorOf(entity).fill} 14%, transparent)`,
+            }}
           >
             {entity}
           </motion.span>

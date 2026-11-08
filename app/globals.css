@@ -14,6 +14,21 @@
   --success: #047857;
   --warning: #f59e0b;
   --focus-ring: #4f46e5;
+  /* Hero AI-analysis keyword colors: one per data type, shared by the
+     marker on the word and its chip. --hl-N is the light fill; --hl-N-text
+     is the chip text (darker in light mode so it stays readable). */
+  --hl-1: #fde68a;
+  --hl-2: #86efac;
+  --hl-3: #f9a8d4;
+  --hl-4: #fdba74;
+  --hl-5: #c4b5fd;
+  --hl-6: #7dd3fc;
+  --hl-1-text: #a16207;
+  --hl-2-text: #15803d;
+  --hl-3-text: #be185d;
+  --hl-4-text: #c2410c;
+  --hl-5-text: #6d28d9;
+  --hl-6-text: #0369a1;
   /* Soft light green: commitment icons and the calculator "after" bar. */
   --green-soft: #86efac;
   /* Calculator before/after bar chart: cost today vs. after automation. */
@@ -41,6 +56,12 @@
   --success: #34d399;
   --warning: #fbbf24;
   --focus-ring: #9aa3fb;
+  --hl-1-text: var(--hl-1);
+  --hl-2-text: var(--hl-2);
+  --hl-3-text: var(--hl-3);
+  --hl-4-text: var(--hl-4);
+  --hl-5-text: var(--hl-5);
+  --hl-6-text: var(--hl-6);
   --shadow-ambient: 0 0 0;
   --whatsapp-bubble: #025144;
   --whatsapp-bubble-text: #e9edef;
