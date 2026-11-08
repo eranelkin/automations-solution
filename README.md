@@ -14,7 +14,7 @@ npm install
 cp .env.example .env.local   # fill in WEBHOOK_URL to test real form submission
 npm run dev
 ```
-
+Test
 Open http://localhost:3000 — it redirects to `/he` (default locale; `/en`
 is the other).
 
