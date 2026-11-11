@@ -1,7 +1,7 @@
 # Deploying the site
 
 The site is hosted on **Vercel** and served on the domain registered at
-**Namecheap**. The domain stays at Namecheap; only its DNS records point at
+**Namecheap** (`workflowpilot.net`, served at `https://www.workflowpilot.net/he`). The domain stays at Namecheap; only its DNS records point at
 Vercel. Vercel builds and deploys straight from GitHub
 (`eranelkin/automations-solution`, branch `main`).
 
@@ -19,7 +19,7 @@ Set these in Vercel → Project → **Settings → Environment Variables**.
 testing
 | Variable | Required | Value |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Yes | `https://your-domain.com`. Used for page metadata, share images and structured data (read in `config/site.ts`). |
+| `NEXT_PUBLIC_SITE_URL` | Yes | `https://www.workflowpilot.net` (no `/he`; the locale is added automatically). Used for page metadata, share images and structured data (read in `config/site.ts`). |
 | `WEBHOOK_URL` | For the contact form | Where contact-form submissions are sent. Without it, the form shows a clear "not configured" error instead of faking success. |
 | `NEXT_PUBLIC_ANALYTICS_ENABLED` | No | Turns analytics on. |
 
@@ -38,14 +38,15 @@ to take effect.
 ## 2. Connect the domain in Vercel (one time)
 
 1. In the project, open **Settings → Domains**.
-2. Add `your-domain.com` and `www.your-domain.com`.
-3. Set `www` to **redirect** to `your-domain.com`.
+2. Add `www.workflowpilot.net` and `workflowpilot.net`.
+3. Make `www.workflowpilot.net` the primary domain and set `workflowpilot.net`
+   to **redirect** to it.
 4. Vercel lists the DNS records it expects. Use those exact values in the
    next step if they differ from the ones below.
 
 ## 3. Point Namecheap DNS at Vercel (one time)
 
-1. Namecheap → **Domain List** → **Manage** next to the domain.
+1. Namecheap → **Domain List** → **Manage** next to `workflowpilot.net`.
 2. Under **Nameservers**, keep **Namecheap BasicDNS**.
 3. Open **Advanced DNS** and **delete** the default parking records:
    - `CNAME Record` `www` → `parkingpage.namecheap.com`
@@ -78,10 +79,11 @@ choose **Promote to Production**.
 
 ## Checking the live site
 
-- `https://your-domain.com` opens the Hebrew site (`/he`).
-- `https://www.your-domain.com` and `http://your-domain.com` redirect to
-  `https://your-domain.com`.
-- `curl -I https://your-domain.com/he` shows the security headers from
+- `https://www.workflowpilot.net` opens the Hebrew site at
+  `https://www.workflowpilot.net/he`.
+- `https://workflowpilot.net` and `http://www.workflowpilot.net` redirect to
+  `https://www.workflowpilot.net`.
+- `curl -I https://www.workflowpilot.net/he` shows the security headers from
   `next.config.ts` (`Content-Security-Policy`, `X-Frame-Options`, ...).
 - Page titles and share previews use the real domain (confirms
   `NEXT_PUBLIC_SITE_URL`).
@@ -94,6 +96,6 @@ choose **Promote to Production**.
 |---|---|
 | Vercel says "Invalid Configuration" for the domain | DNS not updated yet, or a parking record is still there. Recheck step 3 and wait. |
 | Domain still shows the Namecheap parking page | The default `www` CNAME / `@` URL Redirect records were not deleted. |
-| Share previews or metadata show `workflowpilot.example.com` | `NEXT_PUBLIC_SITE_URL` is missing; set it and redeploy. |
+| Share previews or metadata show the wrong domain | `NEXT_PUBLIC_SITE_URL` is missing or wrong; set it to `https://www.workflowpilot.net` and redeploy. |
 | Contact form says it isn't configured | `WEBHOOK_URL` is missing; set it and redeploy. |
 | Build fails on Vercel | Run `npm run build` locally, fix the error, push again. |

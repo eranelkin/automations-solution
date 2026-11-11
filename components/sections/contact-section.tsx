@@ -16,7 +16,6 @@ import { useCalculator } from "@/components/calculator/calculator-context";
 import {
   contactDefaultValues,
   contactSchema,
-  INDUSTRY_IDS,
   type ContactFormValues,
 } from "@/lib/contact-schema";
 
@@ -43,7 +42,9 @@ export function ContactSection() {
     defaultValues: contactDefaultValues,
   });
 
-  const [submitState, setSubmitState] = useState<SubmitState>({ status: "idle" });
+  const [submitState, setSubmitState] = useState<SubmitState>({
+    status: "idle",
+  });
 
   useEffect(() => {
     if (prefillRequestId === 0) return;
@@ -87,10 +88,10 @@ export function ContactSection() {
   };
 
   return (
-    <Section id="contact">
+    <Section id="contact" className="py-12 md:py-16 lg:py-20">
       <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 
-      <div className="mx-auto max-w-3xl">
+      <div className="mx-auto max-w-2xl">
         <Card spotlight={false} className="p-6 md:p-8">
           {submitState.status === "success" ? (
             <motion.div
@@ -98,14 +99,21 @@ export function ContactSection() {
               animate={{ opacity: 1, y: 0 }}
               className="flex flex-col items-center gap-3 py-12 text-center"
             >
-              <CheckCircle2 className="size-12 text-[var(--success)]" aria-hidden="true" />
+              <CheckCircle2
+                className="size-12 text-[var(--success)]"
+                aria-hidden="true"
+              />
               <h3 className="text-xl font-semibold text-[var(--text-primary)]">
                 {t("successTitle")}
               </h3>
               <p className="text-[var(--text-secondary)]">{t("successText")}</p>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit(onSubmit)} noValidate className="flex flex-col gap-5">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              noValidate
+              className="flex flex-col gap-5"
+            >
               {/* Honeypot — hidden from sighted/keyboard users, left for bots */}
               <div className="absolute -start-[9999px]" aria-hidden="true">
                 <label htmlFor="company_website">Company website</label>
@@ -128,14 +136,6 @@ export function ContactSection() {
                   registration={register("fullName")}
                 />
                 <Field
-                  id="businessName"
-                  label={t("fields.businessName.label")}
-                  placeholder={t("fields.businessName.placeholder")}
-                  error={errors.businessName?.message}
-                  t={t}
-                  registration={register("businessName")}
-                />
-                <Field
                   id="phone"
                   type="tel"
                   label={t("fields.phone.label")}
@@ -144,66 +144,30 @@ export function ContactSection() {
                   t={t}
                   registration={register("phone")}
                 />
-                <Field
-                  id="email"
-                  type="email"
-                  label={t("fields.email.label")}
-                  placeholder={t("fields.email.placeholder")}
-                  error={errors.email?.message}
-                  t={t}
-                  registration={register("email")}
-                />
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label htmlFor="industry" className="text-sm font-medium text-[var(--text-primary)]">
-                  {t("fields.industry.label")}
-                </label>
-                <select
-                  id="industry"
-                  defaultValue=""
-                  aria-invalid={Boolean(errors.industry)}
-                  aria-describedby={errors.industry ? "industry-error" : undefined}
-                  className={cn(
-                    "h-11 rounded-xl border bg-[var(--background)] px-3.5 text-sm text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]",
-                    errors.industry ? "border-red-500" : "border-[var(--border)]",
-                  )}
-                  {...register("industry")}
-                >
-                  <option value="" disabled>
-                    {t("fields.industry.placeholder")}
-                  </option>
-                  {INDUSTRY_IDS.map((id) => (
-                    <option key={id} value={id}>
-                      {t(`industries.${id}`)}
-                    </option>
-                  ))}
-                </select>
-                {errors.industry && (
-                  <p id="industry-error" className="text-sm text-red-500">
-                    {t(errors.industry.message as never)}
-                  </p>
-                )}
               </div>
 
               <Field
-                id="processToAutomate"
-                label={t("fields.processToAutomate.label")}
-                placeholder={t("fields.processToAutomate.placeholder")}
-                error={errors.processToAutomate?.message}
+                id="email"
+                type="email"
+                label={t("fields.email.label")}
+                placeholder={t("fields.email.placeholder")}
+                error={errors.email?.message}
                 t={t}
-                registration={register("processToAutomate")}
+                registration={register("email")}
               />
 
               <div className="flex flex-col gap-1.5">
-                <label htmlFor="description-field" className="text-sm font-medium text-[var(--text-primary)]">
+                <label
+                  htmlFor="description-field"
+                  className="text-sm font-medium text-[var(--text-primary)]"
+                >
                   {t("fields.description.label")}
                 </label>
                 <textarea
                   id="description-field"
                   rows={4}
                   placeholder={t("fields.description.placeholder")}
-                  className="rounded-xl border border-[var(--border)] bg-[var(--background)] px-3.5 py-2.5 text-sm text-[var(--text-primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]"
+                  className="rounded-xl border border-[var(--border)] bg-[var(--background)] px-3.5 py-2.5 text-sm text-[var(--text-primary)] focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:outline-none"
                   {...register("description")}
                 />
               </div>
@@ -214,13 +178,21 @@ export function ContactSection() {
                     id="consent"
                     type="checkbox"
                     aria-invalid={Boolean(errors.consent)}
-                    aria-describedby={errors.consent ? "consent-error" : undefined}
+                    aria-describedby={
+                      errors.consent ? "consent-error" : undefined
+                    }
                     className="mt-0.5 size-4 shrink-0 accent-[var(--accent)]"
                     {...register("consent")}
                   />
-                  <label htmlFor="consent" className="text-sm text-[var(--text-secondary)]">
+                  <label
+                    htmlFor="consent"
+                    className="text-sm text-[var(--text-secondary)]"
+                  >
                     {t("fields.consent")}{" "}
-                    <Link href="/privacy" className="text-[var(--accent)] underline">
+                    <Link
+                      href="/privacy"
+                      className="text-[var(--accent)] underline"
+                    >
                       {t("privacyLink")}
                     </Link>
                   </label>
@@ -252,7 +224,13 @@ export function ContactSection() {
                 )}
               </AnimatePresence>
 
-              <Button type="submit" size="lg" loading={isSubmitting} className="mt-2">
+              <Button
+                type="submit"
+                variant="cta"
+                size="xl"
+                loading={isSubmitting}
+                className="mt-2"
+              >
                 {isSubmitting ? t("submitting") : t("submit")}
               </Button>
             </form>
@@ -282,7 +260,10 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <label htmlFor={id} className="text-sm font-medium text-[var(--text-primary)]">
+      <label
+        htmlFor={id}
+        className="text-sm font-medium text-[var(--text-primary)]"
+      >
         {label}
       </label>
       <input
@@ -292,7 +273,7 @@ function Field({
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${id}-error` : undefined}
         className={cn(
-          "h-11 rounded-xl border bg-[var(--background)] px-3.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)]",
+          "h-11 rounded-xl border bg-[var(--background)] px-3.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]/60 focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)] focus-visible:outline-none",
           error ? "border-red-500" : "border-[var(--border)]",
         )}
         {...registration}

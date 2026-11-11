@@ -2,45 +2,18 @@
 
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import {
-  ShieldCheck,
-  SlidersHorizontal,
-  Lock,
-  FileCheck2,
-  KeyRound,
-  FileSignature,
-  Gauge,
-  Scale,
-} from "lucide-react";
+import { ShieldCheck, KeyRound, Lock, FileCheck2 } from "lucide-react";
 import { Section } from "@/components/ui/section";
 
-const ICONS = [
-  ShieldCheck,
-  SlidersHorizontal,
-  KeyRound,
-  FileCheck2,
-  Lock,
-  FileSignature,
-  Gauge,
-  Scale,
-];
+const ICONS = [ShieldCheck, KeyRound, Lock, FileCheck2];
 
-const ITEM_IDS = [
-  "noChanges",
-  "yourRules",
-  "minimalAccess",
-  "transparency",
-  "encryption",
-  "confidentiality",
-  "sensitiveControl",
-  "compliance",
-] as const;
+const ITEM_IDS = ["noChanges", "minimalAccess", "encryption", "transparency"] as const;
 
 export function CommitmentSection() {
   const t = useTranslations("commitment");
 
   return (
-    <Section id="commitment" className="pt-[72px] pb-8 md:pt-[88px] md:pb-12 lg:pt-[104px] lg:pb-16">
+    <Section id="commitment" className="py-12 md:py-16 lg:py-20">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +31,7 @@ export function CommitmentSection() {
         />
 
         <div className="relative flex flex-col items-center text-center">
-          <span className="flex size-16 items-center justify-center rounded-full bg-[var(--green-soft)]/10 text-[var(--green-soft)]/80">
+          <span className="flex size-16 items-center justify-center rounded-full bg-[var(--success)]/10 text-[var(--success)]">
             <ShieldCheck className="size-8" aria-hidden="true" />
           </span>
           <h2 className="mt-6 text-h2 font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
@@ -71,14 +44,14 @@ export function CommitmentSection() {
             const Icon = ICONS[i];
             return (
               <div key={id} className="flex gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
-                <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-[var(--card)] text-[var(--green-soft)]/80">
+                <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-[var(--success)]/10 text-[var(--success)]">
                   <Icon className="size-4.5" aria-hidden="true" />
                 </span>
                 <div>
-                  <h3 className="text-sm font-semibold text-[var(--text-primary)]">
+                  <h3 className="text-base font-bold text-[var(--text-primary)]">
                     {t(`items.${id}.title`)}
                   </h3>
-                  <p className="mt-1 text-sm leading-relaxed text-[var(--text-secondary)]">
+                  <p className="mt-1 text-base leading-relaxed text-[var(--text-secondary)]">
                     {t(`items.${id}.description`)}
                   </p>
                 </div>

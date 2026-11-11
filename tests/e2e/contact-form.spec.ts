@@ -17,11 +17,8 @@ test.describe("Contact form", () => {
     await page.evaluate(() => document.getElementById("contact")?.scrollIntoView());
 
     await page.fill("#fullName", "דני כהן");
-    await page.fill("#businessName", "מרכול השכונה");
     await page.fill("#phone", "050-1234567");
     await page.fill("#email", "dani@example.com");
-    await page.selectOption("#industry", "retail");
-    await page.fill("#processToAutomate", "קליטת הזמנות");
     await page.check("#consent");
     await page.locator('button[type="submit"]').click();
 
@@ -37,11 +34,8 @@ test.describe("Contact form", () => {
     await page.evaluate(() => document.getElementById("contact")?.scrollIntoView());
 
     await page.fill("#fullName", "דני כהן");
-    await page.fill("#businessName", "מרכול השכונה");
     await page.fill("#phone", "050-1234567");
     await page.fill("#email", "dani@example.com");
-    await page.selectOption("#industry", "retail");
-    await page.fill("#processToAutomate", "קליטת הזמנות");
     await page.check("#consent");
     await page.locator('button[type="submit"]').click();
 

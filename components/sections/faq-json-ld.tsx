@@ -1,14 +1,11 @@
 import { getTranslations } from "next-intl/server";
 
 const FAQ_IDS = [
-  "howLong",
   "howMuch",
+  "howLong",
+  "technicalKnowledge",
   "replaceSystems",
   "aiMistakes",
-  "dataProtection",
-  "technicalKnowledge",
-  "startSmall",
-  "stopping",
 ] as const;
 
 export async function FaqJsonLd({ locale }: { locale: string }) {

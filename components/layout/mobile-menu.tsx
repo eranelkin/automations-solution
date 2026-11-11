@@ -62,7 +62,7 @@ export function MobileMenu() {
               <ThemeToggle />
               {/* <LanguageSwitcher /> */}
             </div>
-            <Button asChild size="lg" onClick={() => setOpen(false)}>
+            <Button asChild variant="cta" size="lg" onClick={() => setOpen(false)}>
               <a href={`/${locale}#contact`}>{t("nav.cta")}</a>
             </Button>
           </div>

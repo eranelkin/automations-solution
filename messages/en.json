@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "WorkFlowPilot – Custom Business Automation & AI Agents",
+    "title": "WorkFlowPilot – Custom Automation for Businesses",
     "titleSuffix": "WorkFlowPilot",
-    "description": "We turn manual business processes into smart, automated ones using AI, integrations, and automations built around your business."
+    "description": "Less manual work: we build automation that reads orders, documents and messages and enters them into your systems. First consultation is free."
   },
   "common": {
     "skipToContent": "Skip to content",
@@ -19,15 +19,15 @@
   "nav": {
     "howItWorks": "How it works",
     "examples": "Examples",
-    "commitment": "Our commitment",
+    "commitment": "Security & control",
     "faq": "FAQ",
     "contact": "Contact",
-    "cta": "Let's talk"
+    "cta": "Free consultation"
   },
   "hero": {
-    "titleLine1": "Automation that works for you —",
-    "titleLine2": "not without you",
-    "subtitle": "AI reads orders from WhatsApp and email, prepares a clear summary, and passes them to your systems only after you approve.",
+    "titleLine1": "Less manual work.",
+    "titleLine2": "More time for your business.",
+    "subtitle": "We build automation that reads orders, documents and messages, and enters them into your systems. You just approve.",
     "trustLine": "Nothing changes in your systems without your approval.",
     "flow": {
       "windowTitle": "WorkFlowPilot · Order intake process",
@@ -51,25 +51,64 @@
           "stepName": "AI analysis",
           "agentLabel": "AI Agent",
           "highlights": [
-            { "text": "Netanya site", "entity": "address" },
-            { "text": "Tuesday", "entity": "date" },
-            { "text": "12 pallets", "entity": "quantities" },
-            { "text": "20cm blocks", "entity": "products" },
-            { "text": "40 bags", "entity": "quantities" },
-            { "text": "25kg grey cement", "entity": "products" },
-            { "text": "by 7:00 AM", "entity": "delivery time" },
-            { "text": "Avi", "entity": "customer" }
+            {
+              "text": "Netanya site",
+              "entity": "address"
+            },
+            {
+              "text": "Tuesday",
+              "entity": "date"
+            },
+            {
+              "text": "12 pallets",
+              "entity": "quantities"
+            },
+            {
+              "text": "20cm blocks",
+              "entity": "products"
+            },
+            {
+              "text": "40 bags",
+              "entity": "quantities"
+            },
+            {
+              "text": "25kg grey cement",
+              "entity": "products"
+            },
+            {
+              "text": "by 7:00 AM",
+              "entity": "delivery time"
+            },
+            {
+              "text": "Avi",
+              "entity": "customer"
+            }
           ]
         },
         "extraction": {
           "stepName": "Data extraction",
           "cardTitle": "Structured order",
           "fields": {
-            "customer": { "label": "Customer", "value": "Avi · Site foreman, Sea Towers" },
-            "products": { "label": "Products", "value": "20cm blocks · 25kg grey cement" },
-            "quantity": { "label": "Quantity", "value": "12 pallets + 40 bags" },
-            "address": { "label": "Delivery address", "value": "Netanya site" },
-            "date": { "label": "Delivery time", "value": "Tuesday, by 7:00 AM" }
+            "customer": {
+              "label": "Customer",
+              "value": "Avi · Site foreman, Sea Towers"
+            },
+            "products": {
+              "label": "Products",
+              "value": "20cm blocks · 25kg grey cement"
+            },
+            "quantity": {
+              "label": "Quantity",
+              "value": "12 pallets + 40 bags"
+            },
+            "address": {
+              "label": "Delivery address",
+              "value": "Netanya site"
+            },
+            "date": {
+              "label": "Delivery time",
+              "value": "Tuesday, by 7:00 AM"
+            }
           }
         },
         "validation": {
@@ -96,8 +135,15 @@
           "source": "Approved order",
           "erpCaption": "Orders & inventory",
           "crmCaption": "Customers & activity",
-          "erpRows": ["20cm blocks · 12 pallets", "25kg grey cement · 40 bags", "Delivery: Tue 7:00 AM · Netanya"],
-          "crmRows": ["Avi · Sea Towers project", "New order logged on account"],
+          "erpRows": [
+            "20cm blocks · 12 pallets",
+            "25kg grey cement · 40 bags",
+            "Delivery: Tue 7:00 AM · Netanya"
+          ],
+          "crmRows": [
+            "Avi · Sea Towers project",
+            "New order logged on account"
+          ],
           "updated": "Updated"
         },
         "success": {
@@ -142,255 +188,147 @@
     "disclaimer": "This estimate is for illustration only, based on the numbers entered and an assumed {rate}% potential savings on time spent on repetitive tasks. It is not a guarantee of actual financial savings. Real-world savings depend on the nature of the process, the scope of automation, development, implementation and maintenance costs, and whether the freed-up hours can be redirected to other work.",
     "contactPrefill": "I came from the calculator on your website. In my business, {employees} employees spend about {hours} hours a week on repetitive tasks at an hourly cost of about ₪{cost}, and the estimated yearly savings is about {savings}. I'd love to hear more about the right solution for us."
   },
-  "problem": {
-    "title": "How much time is your business losing on things that could be streamlined?",
-    "summary": "If something keeps happening the same way over and over, it's worth checking whether it can run itself.",
-    "items": [
-      "Employees copy data from one system to another",
-      "Orders arrive by email or WhatsApp and get typed in by hand",
-      "Supplier invoices are keyed in one by one",
-      "Leads from different sources don't get followed up in time",
-      "Quotes are rebuilt manually again and again",
-      "Managers approve every action over messages and email",
-      "Information is scattered across Excel, email, WhatsApp, and systems",
-      "Hours disappear into follow-ups, reminders, and reports"
-    ]
-  },
   "solution": {
-    "title": "We turn clunky processes into smart ones.",
-    "description": "We connect your systems, data, and AI tools to create processes that run automatically, accurately, and under control.",
-    "emphasis": "Not automating a single action — automating the whole business process.",
-    "pipeline": [
-      "Intake from emails, messages, forms, and documents",
-      "Understanding and extracting details with AI",
-      "Checking against business rules and existing data",
-      "Routing to the right systems",
-      "Generating documents, tasks, orders, and reports",
-      "Alerts and approval requests",
-      "Monitoring and handling exceptions"
-    ]
+    "title": "How it works",
+    "description": "Three simple steps. No technical knowledge needed, we do all the work.",
+    "steps": [
+      {
+        "title": "Tell us what takes up your time",
+        "description": "A short, free consultation. We learn the process and where it gets stuck."
+      },
+      {
+        "title": "We build and connect",
+        "description": "We tailor the automation to your business and connect it to the systems you already use."
+      },
+      {
+        "title": "It runs, and you approve",
+        "description": "Repetitive work happens on its own. You approve every important action, and we keep supporting you."
+      }
+    ],
+    "systemsLine": "Works with the systems you already have: WhatsApp, Gmail, Outlook, Excel, Priority, SAP, Monday and more."
   },
   "examples": {
-    "title": "What could be automated in your business?",
-    "subtitle": "Here are a few examples of common processes. They're illustrative only, and don't limit the kind of solutions we build.",
-    "footerNote": "These are just a few examples out of many. The process you need to streamline might not even be listed here. Bring us the challenge, and we'll figure out how to make it smart and automatic.",
-    "cta": "I have a process I want to automate",
+    "title": "Processes you can streamline",
+    "subtitle": "For illustration only. Every process is built specifically for your business.",
+    "footerNote": "Don't see your process here? Tell us about it.",
     "stepsLabel": "How it works, step by step",
     "items": {
       "orderIntake": {
-        "title": "Automatic order intake",
-        "problem": "Orders arrive by email and WhatsApp and get typed into the system by hand, with typos and delays.",
+        "title": "Order intake",
+        "problem": "Orders from WhatsApp and email enter your system on their own, no typing.",
         "steps": [
-          "Intake from email and WhatsApp",
-          "AI extracts the details",
-          "Identify the customer and products",
-          "Check quantities and stock",
-          "Summary sent for manager approval",
-          "Entered into ERP/CRM after approval",
-          "Confirmation sent to the customer"
+          "The order arrives on WhatsApp or email",
+          "The system understands what was ordered and by whom",
+          "Checks stock and quantities",
+          "You approve with one click",
+          "The order enters the system and the customer gets a confirmation"
         ]
       },
       "invoiceProcessing": {
-        "title": "Supplier invoice processing",
-        "problem": "Supplier invoices are typed into the books one by one, risking duplicates and mistakes.",
+        "title": "Supplier invoices",
+        "problem": "Invoices are captured and checked automatically, no typing and no duplicates.",
         "steps": [
-          "Invoice intake",
-          "OCR + AI extraction",
-          "Identify vendor, amounts, and dates",
-          "Match against purchase orders",
-          "Flag duplicates and exceptions",
-          "Approval where needed",
-          "Entered into the books"
-        ]
-      },
-      "supplierOrders": {
-        "title": "Supplier orders & delivery notes",
-        "problem": "Manually tracking low stock and supplier orders takes time and still leads to shortages.",
-        "steps": [
-          "Low-stock alerts",
-          "Draft order prepared for approval",
-          "Delivery notes captured",
-          "Matched against the order"
+          "The invoice arrives by email",
+          "The system reads supplier, amount and date",
+          "Matches it to the purchase order",
+          "Flags anything unusual for review",
+          "Enters it into your accounting"
         ]
       },
       "leadManagement": {
-        "title": "Lead management & sales flow",
-        "problem": "Leads from different sources fall through the cracks instead of being followed up in time.",
+        "title": "Lead handling",
+        "problem": "Every lead is recorded and reaches the right salesperson on time.",
         "steps": [
-          "Intake from every source",
-          "AI classification",
-          "Lead created in CRM",
-          "Assigned to a salesperson",
-          "Reminders and follow-up",
-          "Flag leads that went untouched"
-        ]
-      },
-      "clientOnboarding": {
-        "title": "Client onboarding & document collection",
-        "problem": "Collecting documents from new clients means manual reminders and chasing people down.",
-        "steps": [
-          "Intake questionnaire",
-          "Request missing documents with automatic reminders",
-          "Sort and file the documents",
-          "Case opened in the system after approval"
+          "A lead comes from the website, Facebook or phone",
+          "It's recorded automatically",
+          "Assigned to the right salesperson",
+          "Reminder if it isn't handled"
         ]
       },
       "customerService": {
-        "title": "Smart customer service",
-        "problem": "Customer inquiries come in through several channels and require manual digging before anyone can reply.",
+        "title": "Customer service",
+        "problem": "Requests from every channel in one place, with a suggested reply ready.",
         "steps": [
-          "Intake from multiple channels",
-          "Understand the request",
-          "Pull the relevant information",
-          "Suggest a reply within policy and permissions",
-          "Open a ticket",
-          "Escalate complex cases to a rep"
+          "A request arrives on any channel",
+          "The system understands the topic",
+          "Prepares a suggested reply",
+          "An agent approves or edits it",
+          "Complex requests go to an agent"
         ]
       },
       "quotes": {
-        "title": "Quote generation",
-        "problem": "Quotes get rebuilt manually every time, with price lists checked by hand.",
+        "title": "Price quotes",
+        "problem": "A quote ready in minutes, based on your price list.",
         "steps": [
-          "Intake the request",
-          "Check price lists",
-          "Calculate",
-          "Generate the document",
-          "Approval where needed",
-          "Send and follow up"
+          "The request comes in",
+          "The system builds a quote from your price list",
+          "You review and approve",
+          "The quote is sent to the customer",
+          "Follow-up reminder"
         ]
       },
-      "procurement": {
-        "title": "Procurement & approvals",
-        "problem": "Purchase requests and approvals move manually between people with no central tracking.",
+      "clientOnboarding": {
+        "title": "New client onboarding",
+        "problem": "Documents are collected automatically, with automatic reminders.",
         "steps": [
-          "Purchase request",
-          "Compare quotes",
-          "Flag exceptions",
-          "Manager approval",
-          "Purchase order created",
-          "Track fulfillment"
+          "The client fills out a short form",
+          "Reminders for missing documents",
+          "Documents are filed in place",
+          "A file is opened in the system after approval"
         ]
-      }
-    }
-  },
-  "whyUs": {
-    "title": "Your business doesn't run on a template. Your automation shouldn't either.",
-    "summary": "We're not here to add another system to your stack. We make the systems you already have work better together.",
-    "items": {
-      "custom": {
-        "title": "Solutions built around you",
-        "description": "Every process is built around how your business actually works, not a pre-made template."
-      },
-      "businessFirst": {
-        "title": "Business understanding before technology",
-        "description": "We understand the process and the goals first, then pick the right tools for the job."
-      },
-      "integration": {
-        "title": "Connecting what you already have",
-        "description": "We don't replace what's already working — we connect your systems so they talk to each other."
-      },
-      "smartAi": {
-        "title": "AI used wisely, only where it adds value",
-        "description": "AI is a tool, not the goal. It's used only where it genuinely saves time and improves accuracy."
-      },
-      "humanControl": {
-        "title": "Human control and approval",
-        "description": "You decide which actions run automatically and which need approval first."
-      },
-      "support": {
-        "title": "Hands-on support and rollout",
-        "description": "We stay with you from launch, track performance, and keep improving over time."
       }
     }
   },
   "commitment": {
-    "title": "Our commitment: nothing changes without your approval.",
+    "title": "Your data is safe. The decisions stay with you.",
     "items": {
       "noChanges": {
-        "title": "Zero changes without approval",
-        "description": "No action is taken in your systems or data without prior, explicit approval."
-      },
-      "yourRules": {
-        "title": "You set the rules",
-        "description": "Which processes run with approval and which run automatically is entirely your call."
+        "title": "No change without approval",
+        "description": "Nothing changes in your systems until you approve it."
       },
       "minimalAccess": {
-        "title": "Minimal access",
-        "description": "Access only to what a process needs, with defined and documented permissions."
-      },
-      "transparency": {
-        "title": "Full transparency",
-        "description": "Every action the system takes is logged."
+        "title": "Access only to what's needed",
+        "description": "We only access the data the process requires."
       },
       "encryption": {
-        "title": "Encryption",
-        "description": "Data is encrypted in transit and at rest."
+        "title": "Encrypted and confidential",
+        "description": "Data is encrypted, and we sign an NDA before we start."
       },
-      "confidentiality": {
-        "title": "Confidentiality",
-        "description": "An NDA is signed before any work begins."
-      },
-      "sensitiveControl": {
-        "title": "Control over sensitive actions",
-        "description": "Payments, binding orders, and customer commitments always go through an approval step."
-      },
-      "compliance": {
-        "title": "Legal compliance",
-        "description": "We work in line with Israel's privacy law and data-security regulations."
+      "transparency": {
+        "title": "Everything is logged",
+        "description": "You can see every action the system took."
       }
     }
   },
-  "systems": {
-    "title": "We connect the systems already running your business.",
-    "note": "Examples of systems we can look into connecting. Every connection is assessed on its own.",
-    "message": "You don't have to replace your systems. Sometimes all it takes is getting them to talk to each other.",
-    "items": [
-      "WhatsApp", "Gmail", "Outlook", "Slack", "Monday", "HubSpot", "Salesforce",
-      "Priority", "SAP Business One", "Hashavshevet", "Rivhit", "Excel", "Google Sheets",
-      "Inventory systems", "Service desks", "Digital forms", "APIs", "AI tools"
-    ]
-  },
   "faq": {
-    "title": "Frequently asked questions",
+    "title": "FAQ",
     "items": {
-      "howLong": {
-        "question": "How long does it take to set up an automation?",
-        "answer": "It depends on the scope. A focused process can go live within a few weeks, while a more complex one connecting several systems can take longer. We'll give you a realistic estimate for your specific process in the diagnostic call."
-      },
       "howMuch": {
         "question": "How much does it cost?",
-        "answer": "It depends on the process: its complexity, the systems involved, and the amount of work required. Pricing is set after a free diagnostic call, where we understand exactly what's needed."
+        "answer": "It depends on the process. After a free consultation you get a clear quote, no surprises."
       },
-      "replaceSystems": {
-        "question": "Do we need to replace our existing systems?",
-        "answer": "In most cases, no. We connect to the systems you already have rather than replacing them. We'd only discuss a replacement if there's a real gap that requires it."
-      },
-      "aiMistakes": {
-        "question": "What happens if the AI gets something wrong?",
-        "answer": "Every process has control points and human approval built in where you need them, and any sensitive action requires approval before it happens. Exceptions and uncertain cases are flagged for a person, not run automatically."
-      },
-      "dataProtection": {
-        "question": "How is my data protected?",
-        "answer": "Data is encrypted in transit and at rest, access is limited to what's needed, and we sign an NDA before work begins. Every action is logged and transparent."
+      "howLong": {
+        "question": "How long until it's running?",
+        "answer": "A simple process can be running within a few weeks. We give an accurate estimate in the first call."
       },
       "technicalKnowledge": {
-        "question": "Do I need technical knowledge to work with you?",
-        "answer": "Not at all. We handle the technical side. What you bring is knowledge of your own business process — we take care of the rest."
+        "question": "Do I need technical knowledge?",
+        "answer": "No. You know your business, we take care of the rest."
       },
-      "startSmall": {
-        "question": "Can we start with just one small process?",
-        "answer": "Absolutely, and it's usually what we recommend. Starting with one well-defined process lets you see results fast and learn before expanding further."
+      "replaceSystems": {
+        "question": "Do I need to replace my systems?",
+        "answer": "No. We connect the systems you already have."
       },
-      "stopping": {
-        "question": "What happens if we want to stop later on?",
-        "answer": "Your data and processes are always yours. If you want to pause or change direction, we'll hand everything over in an orderly, transparent way."
+      "aiMistakes": {
+        "question": "What if the system makes a mistake?",
+        "answer": "Every important action waits for your approval. Unclear cases come to you instead of running on their own."
       }
     }
   },
   "footer": {
-    "closingTitle": "Every process holding your business back is a chance to streamline it.",
-    "closingText": "Tell us what you want to change, and we'll build the way there.",
-    "tagline": "Custom business automation & AI agents.",
+    "closingTitle": "Is a process taking up your time?",
+    "closingText": "Let's check together how to save it.",
+    "tagline": "Custom automation for businesses.",
     "navTitle": "Navigate",
     "contactTitle": "Get in touch",
     "legalTitle": "Legal",
@@ -405,27 +343,29 @@
     "message": "Hi, I came from your website and I'd like to hear how automation can save time in my business"
   },
   "contact": {
-    "title": "Is there a process in your business you want to stop doing by hand?",
-    "subtitle": "Tell us what's slowing you down. We'll look at the process and see how to make it smarter, faster, and more automatic.",
+    "title": "Tell us what takes up your time",
+    "subtitle": "Fill out a short form and we'll get back to you for a free consultation. No commitment.",
     "fields": {
-      "fullName": { "label": "Full name", "placeholder": "Jane Doe" },
-      "businessName": { "label": "Business name", "placeholder": "Your company name" },
-      "phone": { "label": "Phone", "placeholder": "050-1234567" },
-      "email": { "label": "Email", "placeholder": "name@company.com" },
-      "industry": { "label": "Industry", "placeholder": "Select an industry" },
-      "processToAutomate": { "label": "Which process would you like to streamline?", "placeholder": "e.g. order intake" },
-      "description": { "label": "Tell us more", "placeholder": "Tell us more about the process and what's slowing you down" },
+      "fullName": {
+        "label": "Full name",
+        "placeholder": "Jane Doe"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "050-1234567"
+      },
+      "email": {
+        "label": "Email (optional)",
+        "placeholder": "name@company.com"
+      },
+      "description": {
+        "label": "What would you like to streamline? (optional)",
+        "placeholder": "e.g. WhatsApp orders that are typed into the system by hand"
+      },
       "consent": "I've read and agree to the"
     },
-    "industries": {
-      "factory": "Manufacturing",
-      "retail": "Retail / grocery",
-      "insurance": "Insurance agency",
-      "legal": "Law firm",
-      "other": "Other"
-    },
     "privacyLink": "privacy policy",
-    "submit": "Let's talk about automation",
+    "submit": "Send and we'll call you",
     "submitting": "Sending...",
     "successTitle": "Your message was sent!",
     "successText": "Thanks for reaching out. We'll get back to you shortly.",
@@ -560,5 +500,35 @@
         "body": "For questions about these terms of use, contact us at [TO COMPLETE: email address]."
       }
     }
+  },
+  "cta": {
+    "button": "Book a free consultation",
+    "note": "Free · No commitment",
+    "whatsapp": "or message us on WhatsApp",
+    "whatsappMessage": "Hi, I came from your website and I'd like to hear how automation can save time in my business"
+  },
+  "benefits": {
+    "title": "What you get",
+    "items": {
+      "time": {
+        "title": "Save hours every week",
+        "description": "Orders, invoices and leads come in on their own. No copy-paste."
+      },
+      "accuracy": {
+        "title": "Fewer mistakes",
+        "description": "Data moves exactly as it is. No typos, no forgotten requests."
+      },
+      "control": {
+        "title": "You stay in control",
+        "description": "Nothing enters your systems without your approval. You set the rules."
+      }
+    },
+    "familiarTitle": "Sound familiar?",
+    "familiar": [
+      "Orders from WhatsApp and email are typed in by hand",
+      "Supplier invoices are entered one by one",
+      "Leads fall through the cracks",
+      "Information is scattered across Excel, email and systems"
+    ]
   }
 }

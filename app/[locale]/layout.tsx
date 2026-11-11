@@ -78,7 +78,9 @@ export default async function LocaleLayout({
         <OrganizationJsonLd locale={locale} />
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
+          // New key so choices saved under the old dark default don't carry over.
+          storageKey="workflowpilot-theme"
           enableSystem
           disableTransitionOnChange
         >

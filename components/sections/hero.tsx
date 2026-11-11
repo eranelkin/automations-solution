@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { ShieldCheck } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { HeroFlow } from "@/components/hero-flow/hero-flow";
+import { CtaBlock } from "@/components/ui/cta-block";
 import { HeroBackground } from "./hero-background";
 import { cn } from "@/lib/utils";
 
@@ -52,13 +53,13 @@ export function Hero() {
       <HeroBackground />
       <Container
         id="hero-page"
-        className="relative grid grid-rows-[auto_auto] justify-items-center gap-8"
+        className="relative grid grid-rows-[auto_auto] justify-items-center gap-10"
       >
         <div
           className="flex max-w-5xl flex-col items-center text-center"
           id="hero-right"
         >
-          <h1 className="text-[clamp(2rem,1.5rem+2vw,3.5rem)] leading-[1.1] font-semibold tracking-[-0.02em] text-balance text-[var(--text-primary)]">
+          <h1 className="text-[clamp(2.25rem,1.6rem+2.4vw,3.75rem)] leading-[1.1] font-extrabold tracking-[-0.02em] text-balance text-[var(--text-primary)]">
             <AnimatedTitle text={t("titleLine1")} />{" "}
             <AnimatedTitle text={t("titleLine2")} gradient />
           </h1>
@@ -69,6 +70,8 @@ export function Hero() {
           <p className="mt-4 max-w-[42rem] text-lg leading-relaxed text-pretty text-[var(--text-secondary)] md:text-xl">
             {t("subtitle")}
           </p>
+
+          <CtaBlock className="mt-7" />
         </div>
 
         <motion.div

@@ -4,6 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Phone, Mail } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { Container } from "@/components/ui/container";
+import { CtaBlock } from "@/components/ui/cta-block";
 import { Link } from "@/i18n/navigation";
 import { ThemeToggle } from "./theme-toggle";
 // Hebrew only for now; restore to bring back the language switcher.
@@ -34,12 +35,13 @@ export function Footer() {
     <footer className="border-t border-[var(--border)] bg-[var(--surface)]">
       <Container className="py-14 md:py-20">
         <div className="rounded-3xl border border-[var(--accent)]/20 bg-[var(--card)] p-8 text-center md:p-12">
-          <h2 className="text-xl font-semibold text-[var(--text-primary)] md:text-2xl">
+          <h2 className="text-2xl font-bold text-[var(--text-primary)] md:text-3xl">
             {t("closingTitle")}
           </h2>
           <p className="mt-2 text-[var(--text-secondary)]">
             {t("closingText")}
           </p>
+          <CtaBlock className="mt-6" />
         </div>
 
         <div className="mt-14 grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">

@@ -42,7 +42,7 @@ export function Header() {
             <a
               key={id}
               href={`/${locale}#${id}`}
-              className="rounded-full px-3.5 py-2 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--text-primary)]"
+              className="rounded-full px-3.5 py-2 text-[15px] font-medium text-[var(--text-primary)] transition-colors hover:bg-[var(--surface)] hover:text-[var(--text-primary)]"
             >
               {t(labelKey)}
             </a>
@@ -54,7 +54,7 @@ export function Header() {
             <ThemeToggle />
             {/* <LanguageSwitcher /> */}
           </div>
-          <Button asChild size="sm" className="ms-2 hidden lg:inline-flex">
+          <Button asChild variant="cta" size="sm" className="ms-2 hidden lg:inline-flex">
             <a href={`/${locale}#contact`}>{t("nav.cta")}</a>
           </Button>
           <MobileMenu />

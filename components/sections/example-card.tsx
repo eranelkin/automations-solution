@@ -122,8 +122,8 @@ export function ExampleCard({
       </div>
 
       <div className="flex flex-col gap-2">
-        <h3 className="text-base font-semibold text-[var(--text-primary)]">{title}</h3>
-        <p className="line-clamp-3 text-sm leading-relaxed text-[var(--text-secondary)]">
+        <h3 className="text-lg font-bold text-[var(--text-primary)]">{title}</h3>
+        <p className="text-base leading-relaxed text-[var(--text-secondary)]">
           {problem}
         </p>
       </div>
