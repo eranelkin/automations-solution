@@ -24,7 +24,7 @@ export function HeroFlowStatic() {
     <div
       role="region"
       aria-label={t("ariaLabel")}
-      className="relative mx-auto w-full max-w-[720px] overflow-hidden rounded-3xl hero-flow-scale border border-[var(--border)] bg-[var(--card)]"
+      className="relative mx-auto w-full max-w-[720px] overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--card)]"
     >
       <div className="flex items-center justify-between border-b border-[var(--border)] bg-[var(--surface)] px-4 py-3">
         <p className="truncate text-xs font-medium text-[var(--text-secondary)]">

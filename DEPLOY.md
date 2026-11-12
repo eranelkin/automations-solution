@@ -20,8 +20,29 @@ testing
 | Variable | Required | Value |
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Yes | `https://www.workflowpilot.net` (no `/he`; the locale is added automatically). Used for page metadata, share images and structured data (read in `config/site.ts`). |
-| `WEBHOOK_URL` | For the contact form | Where contact-form submissions are sent. Without it, the form shows a clear "not configured" error instead of faking success. |
+| `EMAILJS_SERVICE_ID` | For the contact form | EmailJS → Email Services → your service's ID. |
+| `EMAILJS_TEMPLATE_ID` | For the contact form | EmailJS → Email Templates → your template's ID. |
+| `EMAILJS_PUBLIC_KEY` | For the contact form | EmailJS → Account → General → Public Key. |
+| `EMAILJS_PRIVATE_KEY` | For the contact form | EmailJS → Account → Security → Private Key. Secret: never commit it. |
+| `WEBHOOK_URL` | Optional | Used only when the four EmailJS values aren't all set. With neither configured, the form shows a clear "not configured" error instead of faking success. |
 | `NEXT_PUBLIC_ANALYTICS_ENABLED` | No | Turns analytics on. |
+
+### Contact form email (EmailJS)
+
+Submissions are emailed from the server (`app/api/contact/route.ts`) through
+EmailJS's REST API, so the private key never reaches the browser and no
+EmailJS script is loaded on the page. One-time setup in EmailJS:
+
+1. **Email Services → Add New Service**: connect the mailbox that sends.
+2. **Email Templates → Create New Template**: set *To Email* to where leads
+   should arrive, *Reply To* to `{{email}}`, and use these variables in the
+   subject/body: `{{fullName}}`, `{{phone}}`, `{{email}}`, `{{description}}`,
+   `{{submittedAt}}` (empty email/description arrive as `-`).
+3. **Account → Security**: create a Private Key and enable
+   **"Allow EmailJS API for non-browser applications"**. Without it, EmailJS
+   rejects server sends with a 403.
+4. Put the four `EMAILJS_*` values in `.env.local` for local work and in
+   Vercel's Environment Variables for production.
 
 After changing a variable, redeploy (Deployments → ⋯ → **Redeploy**) for it
 to take effect.
@@ -88,7 +109,7 @@ choose **Promote to Production**.
 - Page titles and share previews use the real domain (confirms
   `NEXT_PUBLIC_SITE_URL`).
 - The accessibility, privacy and terms pages load.
-- The contact form sends a test message (if `WEBHOOK_URL` is set).
+- The contact form sends a test message and it arrives in the EmailJS template's inbox.
 
 ## Troubleshooting
 
@@ -97,5 +118,6 @@ choose **Promote to Production**.
 | Vercel says "Invalid Configuration" for the domain | DNS not updated yet, or a parking record is still there. Recheck step 3 and wait. |
 | Domain still shows the Namecheap parking page | The default `www` CNAME / `@` URL Redirect records were not deleted. |
 | Share previews or metadata show the wrong domain | `NEXT_PUBLIC_SITE_URL` is missing or wrong; set it to `https://www.workflowpilot.net` and redeploy. |
-| Contact form says it isn't configured | `WEBHOOK_URL` is missing; set it and redeploy. |
+| Contact form says it isn't configured | The `EMAILJS_*` values (or `WEBHOOK_URL`) are missing; set them and redeploy. |
+| Contact form shows "something went wrong" | EmailJS rejected the send. Check the server log for `[contact] EmailJS delivery failed`; a 403 usually means "Allow EmailJS API for non-browser applications" is off, a 400 a wrong ID or key. |
 | Build fails on Vercel | Run `npm run build` locally, fix the error, push again. |

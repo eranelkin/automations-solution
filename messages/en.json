@@ -29,6 +29,35 @@
     "titleLine2": "More time for your business.",
     "subtitle": "We build automation that reads orders, documents and messages, and enters them into your systems. You just approve.",
     "trustLine": "Nothing changes in your systems without your approval.",
+    "story": {
+      "ariaLabel": "How it works: a message that enters your system on its own",
+      "steps": [
+        {
+          "title": "A message or order arrives",
+          "text": "From WhatsApp, email, Excel, Access and more."
+        },
+        {
+          "title": "The system understands and organizes it, on its own",
+          "text": "It pulls out every detail: products, quantities, dates and more. Nothing for you to do."
+        },
+        {
+          "title": "You approve with one tap",
+          "text": "You get a short summary and tap 'Approve'."
+        },
+        {
+          "title": "It enters your systems",
+          "text": "Everything is entered on its own. No typing."
+        },
+        {
+          "title": "The customer gets a confirmation",
+          "text": "The customer is happy, and you saved time."
+        }
+      ],
+      "demoButton": "Watch the live demo",
+      "demoTitle": "How a WhatsApp order flows into your system on its own",
+      "demoSubtitle": "Illustrative demo · about 30 seconds",
+      "close": "Close"
+    },
     "flow": {
       "windowTitle": "WorkFlowPilot · Order intake process",
       "ariaLabel": "Animated demo of an automated order-intake process",

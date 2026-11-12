@@ -28,7 +28,7 @@ export function MobileMenu() {
       </Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-[var(--background)]/70 backdrop-blur-sm" />
-        <Dialog.Content className="fixed inset-0 z-50 flex flex-col bg-[var(--background)] p-6">
+        <Dialog.Content className="fixed inset-0 z-50 flex flex-col bg-[var(--header-bg)] p-6">
           <div className="flex items-center justify-between">
             <Dialog.Title className="text-lg font-semibold text-[var(--text-primary)]">
               {t("meta.titleSuffix")}
