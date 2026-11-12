@@ -13,7 +13,7 @@ export const WHATSAPP_PHONE = "972523637333";
 export const PHONE_DISPLAY = "+972-52-363-7333";
 
 /** [להשלמה: אימייל רשמי של החברה] */
-export const CONTACT_EMAIL = "info@workflowpilot.com";
+export const CONTACT_EMAIL = "eran.elkin.auto@gmail.com";
 
 export const SOCIAL_LINKS = {
   linkedin: "", // [להשלמה: קישור ללינקדאין]
