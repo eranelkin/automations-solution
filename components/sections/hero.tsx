@@ -78,7 +78,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="mb-4 flex w-full justify-start lg:w-[min(86rem,calc(100vw-4rem))] lg:mx-[calc((100%-min(86rem,calc(100vw-4rem)))/2)] lg:max-w-none">
+          <div className="mb-10 lg:mb-4 flex w-full justify-start lg:w-[min(86rem,calc(100vw-4rem))] lg:mx-[calc((100%-min(86rem,calc(100vw-4rem)))/2)] lg:max-w-none">
             <HeroDemoDialog />
           </div>
           <HeroStory />
