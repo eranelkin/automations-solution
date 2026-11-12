@@ -27,9 +27,9 @@ export function ApprovalStep({ staticMode = false }: { staticMode?: boolean }) {
     const el = approveRef.current;
     const stage = el?.closest("[data-approval-stage]");
     if (!el || !stage) return;
-    // Layout offsets, not getBoundingClientRect: the hero window is scaled
-    // with CSS `zoom` (.hero-flow-scale), so client rects come back in
-    // zoomed pixels while the cursor's transform moves in unzoomed ones.
+    // Layout offsets, not getBoundingClientRect: the demo popup scales in on
+    // open, so client rects come back in scaled pixels while the cursor's
+    // transform moves in unscaled ones.
     // Offsets also ignore the button row's in-flight entrance transform.
     let x = el.offsetWidth / 2;
     let y = el.offsetHeight / 2;
