@@ -185,7 +185,11 @@
     }
   },
   "calculator": {
-    "dock": { "open": "Open savings calculator", "close": "Close calculator", "disclaimerToggle": "How we calculated this" },
+    "dock": {
+      "open": "Open savings calculator",
+      "close": "Close calculator",
+      "disclaimerToggle": "How we calculated this"
+    },
     "title": "What's it costing you not to automate?",
     "subtitle": "See how much time and money your business spends on repetitive tasks, and the potential savings.",
     "sliders": {
@@ -559,5 +563,68 @@
       "Leads fall through the cracks",
       "Information is scattered across Excel, email and systems"
     ]
+  },
+  "preMeeting": {
+    "metaTitle": "Order & inventory automation for your ERP – Executive summary",
+    "metaDescription": "Customers send orders over WhatsApp and Excel. We turn every message into a ready order in your ERP, with one approval tap from your phone.",
+    "tag": "A controlled AI layer for Priority / SAP / Hashavshevet",
+    "tagNote": "No changes to your existing system's code",
+    "titleLine1": "Customers send orders over WhatsApp and Excel.",
+    "titleLine2": "Why is your team still typing them into your system by hand?",
+    "subtitle": "Purchasing, operations and sales managers shouldn't spend hours translating messages into SKUs and checking balances across 4 screens.",
+    "subtitleStrong": "We turn every customer message into a ready order in your system with a single tap from your phone.",
+    "steps": [
+      {
+        "title": "Automatic intake from every channel",
+        "text": "A customer or sales rep sends a WhatsApp message, email or Excel file (even with slang names or abbreviations). The system identifies the customer and your exact SKUs on its own."
+      },
+      {
+        "title": "Stock and credit check in 3 seconds",
+        "text": "The system pulls live from your system the free warehouse stock, incoming purchase orders and the customer's credit status – and gathers it all on one card."
+      },
+      {
+        "title": "You tap \"Approve\" – and the order is in your system",
+        "text": "Nothing is written to your system on its own. You get a ready draft on your phone, and only your tap opens the order (or sends the customer an official quote)."
+      }
+    ],
+    "phone": {
+      "ariaLabel": "Illustration of a WhatsApp message and an order draft on a phone",
+      "caption": "How it looks on your phone in real time (4 seconds from the customer's message):",
+      "example": "Illustrative example",
+      "customerLabel": "WhatsApp from a customer / field rep:",
+      "customerMessage": "\"Good morning, I need 40 high-pressure valves and 15 temperature controllers urgently today.\"",
+      "draftLabel": "Order draft ready for your approval",
+      "obligoOk": "Credit OK",
+      "customer": "Customer:",
+      "customerName": "A.B. Metal Industries (1042)",
+      "line1": "40 units",
+      "line1Item": "Hydraulic valve",
+      "line1Stock": "In stock: 65 units",
+      "line2": "15 units",
+      "line2Item": "Temperature controller",
+      "line2Stock": "In stock: 28 units",
+      "approve": "Approve and open order",
+      "quote": "Send as a quote"
+    },
+    "audiences": [
+      {
+        "label": "For purchasing, operations and sales managers:",
+        "title": "Industrial calm and 100% control in your hands",
+        "text": "Saves about 20 hours a week of typing and follow-ups, zero SKU mistakes in the warehouse, and answers to customers within seconds – with the deciding button always on your phone."
+      },
+      {
+        "label": "For the CEO and CFO:",
+        "title": "Zero operational risk and immediate return",
+        "text": "Works through the ERP's official interface, in cooperation with your implementer. We start with a short read-only feasibility check on your data before any commitment."
+      }
+    ],
+    "cta": {
+      "badge": "Next step • 20 minutes at your office",
+      "title": "Come see it working live against a Priority server.",
+      "text": "In a short demo on the laptop we'll send an order over WhatsApp and watch it register in your system within 4 seconds.",
+      "name": "David Alfassi",
+      "role": "AI systems architect for ERP",
+      "call": "Call now"
+    }
   }
 }
