@@ -11,11 +11,13 @@ const securityHeaders = [
       // 'unsafe-eval' is required only in dev: Next.js HMR and React's
       // dev-mode stack-trace reconstruction both call eval(). Production
       // builds never call eval(), so it's omitted there.
-      `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}`,
+      // Google Tag Manager + GA4 hosts (components/layout/analytics.tsx),
+      // per Google's CSP guide; still only loaded after cookie consent.
+      `script-src 'self' 'unsafe-inline' https://*.googletagmanager.com${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}`,
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob:",
+      "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com",
       "font-src 'self' data:",
-      "connect-src 'self'",
+      "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
