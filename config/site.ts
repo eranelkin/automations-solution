@@ -36,5 +36,8 @@ export const PRE_MEETING_PHONE_DISPLAY = "052-836-1721";
 export const PRE_MEETING_PHONE_TEL = "+972528361721";
 
 /** Analytics is wired but off by default until cookie consent + an env var opt-in. */
+/** Google Tag Manager container ID. */
+export const GTM_ID = "GTM-PM8QSH62";
+
 export const ANALYTICS_ENABLED =
   process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true";

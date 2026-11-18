@@ -2,13 +2,13 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Start site",
-      "detail": "npm run dev (bound to Cmd+Shift+S)",
-      "type": "npm",
-      "script": "dev",
+      "label": "Restart site",
+      "detail": "Kill the dev port, then restart client + server + API (bound to Ctrl+Shift+F)",
+      "type": "shell",
+      "command": "./scripts/restart.sh",
       "isBackground": true,
       "problemMatcher": [],
-      "presentation": { "reveal": "always", "panel": "dedicated" }
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
     }
   ]
 }

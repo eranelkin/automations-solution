@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
-import { ANALYTICS_ENABLED } from "@/config/site";
+import Script from "next/script";
+import { ANALYTICS_ENABLED, GTM_ID } from "@/config/site";
 import { useCookieConsent } from "@/lib/use-cookie-consent";
 
 /**
- * Hook point for a future analytics provider. Stays a no-op until both
+ * Google Tag (GTM container). Stays a no-op until both
  * NEXT_PUBLIC_ANALYTICS_ENABLED=true and the visitor has accepted cookies —
  * nothing is ever loaded before consent, per §13.
  */
@@ -13,10 +13,24 @@ export function Analytics() {
   const consent = useCookieConsent();
   const shouldLoad = ANALYTICS_ENABLED && consent === "accepted";
 
-  useEffect(() => {
-    if (!shouldLoad) return;
-    // [להשלמה: אתחול ספק האנליטיקס בפועל, למשל GA4 / Plausible / PostHog]
-  }, [shouldLoad]);
+  if (!shouldLoad) return null;
 
-  return null;
+  return (
+    <>
+      <Script
+        id="google-tag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`,
+        }}
+      />
+      <Script
+        id="google-tag"
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
+      />
+    </>
+  );
 }
